@@ -8,5 +8,7 @@ namespace TEG_api.Common.Models
     {
         [Key]
         public int Id { get; set; }
+        public string Color { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
     }
 }

@@ -13,11 +13,9 @@ namespace TEG_api.Common.Models
         public MatchStatus MatchStatus { get; set; }
         public int Points { get; set; }
         public int Winner { get; set; }
-        [ForeignKey("UserId")]
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
-        [ForeignKey("TeamId")]
-        public int TeamId { get; set; }
-        public virtual Team Team { get; set; }
+        [ForeignKey("MapId")]
+        public int MapId { get; set; }
+        public Map Map { get; set; }
+        public virtual ICollection<MatchConfig> MatchSetups { get; set; }
     }
 }
