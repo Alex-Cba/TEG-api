@@ -8,10 +8,11 @@ namespace TEG_api.Common.Models
     public class Match
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public DateTimeOffset CreationDateUTC { get; set; }
+        public DateTimeOffset? SaveDateUTC { get; set; }
+        public DateTimeOffset? EndDateUTC { get; set; }
         public MatchStatus MatchStatus { get; set; }
-        public int Points { get; set; }
         public int Winner { get; set; }
         [ForeignKey("MapId")]
         public int MapId { get; set; }

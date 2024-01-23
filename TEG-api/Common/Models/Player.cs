@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
 
 namespace TEG_api.Common.Models
 {
@@ -8,7 +7,7 @@ namespace TEG_api.Common.Models
     public class Player
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [ForeignKey("TeamId")]
         public int TeamId { get; set; }
         public virtual Team Team { get; set; }
@@ -16,5 +15,7 @@ namespace TEG_api.Common.Models
         public int UserId { get; set; }
         public virtual User? User { get; set; }
         public virtual ICollection<MatchConfig> MatchSetups { get; set; }
+        public virtual ICollection<Country> Countries { get; set; }
+        public virtual ICollection<MissionsPlayer> Missions{ get; set; }
     }
 }

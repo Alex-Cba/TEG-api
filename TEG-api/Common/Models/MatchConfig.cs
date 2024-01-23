@@ -14,5 +14,8 @@ namespace TEG_api.Common.Models
         [ForeignKey("MatchId")]
         public int MatchId { get; set; }
         public virtual Match Match { get; set; }
+        [ForeignKey("ConfigurationId")]
+        public int ConfigurationId { get; set; }
+        public virtual Configuration Configuration  { get; set; }
     }
 }
