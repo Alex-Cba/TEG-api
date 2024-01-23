@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TEG_api.Common.Models
 {
-    [Table("MissionsPlayers")]
-    public class MissionsPlayer
+    [Table("PlayerMatches")]
+    public class PlayerMatch
     {
         [Key]
         public int Id { get; set; }
         public virtual Player Player { get; set; }
-        public virtual Mission Mission { get; set; }
+        public virtual Match Match { get; set; }
     }
 }

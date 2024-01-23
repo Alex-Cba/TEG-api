@@ -10,9 +10,7 @@ namespace TEG_api.Common.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int ValueOfTroops { get; set; }
-        public virtual ICollection<Map> Maps { get; set; }
-        [ForeignKey("CountryId")]
-        public int CountryId { get; set; }
-        public virtual Country Country { get; set; }
+        public virtual Map Map { get; set; }
+        public virtual ICollection<Country> Countries { get; set;}
     }
 }

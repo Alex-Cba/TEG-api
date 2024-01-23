@@ -8,14 +8,7 @@ namespace TEG_api.Common.Models
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey("PlayerId")]
-        public int PlayerId { get; set; }
-        public virtual Player Player { get; set; }
-        [ForeignKey("MatchId")]
-        public int MatchId { get; set; }
-        public virtual Match Match { get; set; }
-        [ForeignKey("ConfigurationId")]
-        public int ConfigurationId { get; set; }
         public virtual Configuration Configuration  { get; set; }
+        public virtual ICollection<Match> Matches { get; set; }
     }
 }

@@ -22,8 +22,6 @@ namespace TEG_api.Common.Models
         /// Default 6
         /// </summary>
         public int NumberOfDices { get; set; } = 6;
-        [ForeignKey("DiceId")]
-        public int DiceId { get; set; }
         public virtual Dice Dice { get; set; }
         public virtual ICollection<MatchConfig> MatchSetup { get; set; }
     }

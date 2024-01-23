@@ -9,8 +9,6 @@ namespace TEG_api.Common.Models
         [Key]
         public int Id { get; set; }
         public virtual ICollection<Match> Matches { get; set; }
-        [ForeignKey("ContinentId")]
-        public  int ContinentId { get; set; }
-        public virtual Continent Continent { get; set; }
+        public virtual ICollection<Continent> Continents { get; set; }
     }
 }

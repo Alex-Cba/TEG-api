@@ -14,9 +14,8 @@ namespace TEG_api.Common.Models
         public DateTimeOffset? EndDateUTC { get; set; }
         public MatchStatus MatchStatus { get; set; }
         public int Winner { get; set; }
-        [ForeignKey("MapId")]
-        public int MapId { get; set; }
-        public Map Map { get; set; }
-        public virtual ICollection<MatchConfig> MatchSetups { get; set; }
+        public virtual Map Map { get; set; }
+        public virtual MatchConfig MatchConfig { get; set; }
+        public virtual ICollection<PlayerMatch> PlayerMatches { get; set; }
     }
 }
