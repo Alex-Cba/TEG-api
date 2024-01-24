@@ -32,11 +32,8 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Mapper\" />
     <Folder Include="CQRS\" />
     <Folder Include="Common\DTOs\" />
-    <Folder Include="Services\Imp\" />
-    <Folder Include="Services\Interface\" />
   </ItemGroup>
 
 </Project>
