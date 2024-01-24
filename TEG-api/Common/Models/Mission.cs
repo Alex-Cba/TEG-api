@@ -8,9 +8,10 @@ namespace TEG_api.Common.Models
     public class Mission
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Description { get; set; }
         public DifficultyType DifficultyType { get; set; }
-        public virtual ICollection<MissionsPlayer> MissionsPlayers { get; set; }
+        public virtual ICollection<PlayerGameSetup> PlayerGameSetups { get; set; }
     }
 }

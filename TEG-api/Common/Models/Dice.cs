@@ -8,6 +8,7 @@ namespace TEG_api.Common.Models
     public class Dice
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int Number { get; set; }
         /// <summary>
@@ -18,7 +19,7 @@ namespace TEG_api.Common.Models
         /// Alters the probability, if it is 0 or null it does not alter the probability
         /// </summary>
         [Precision(5, 2)]
-        public decimal? probability { get; set; }
+        public decimal? Probability { get; set; }
         public virtual ICollection<Configuration> Configurations { get; set; }
     }
 }

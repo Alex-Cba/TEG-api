@@ -7,11 +7,12 @@ namespace TEG_api.Common.Models
     public class Player
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public int TeamId { get; set; }
+        public Guid? UserId { get; set; }
         public virtual Team Team { get; set; }
         public virtual User? User { get; set; }
-        public virtual ICollection<PlayerMatch> PlayerMatches { get; set; }
+        public virtual ICollection<PlayerGameSetup> PlayerGameSetups { get; set; }
         public virtual ICollection<Country> Countries { get; set; }
-        public virtual ICollection<MissionsPlayer> Missions{ get; set; }
     }
 }

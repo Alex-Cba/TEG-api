@@ -7,8 +7,9 @@ namespace TEG_api.Common.Models
     public class Configuration
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         /// <summary>
         /// 1st exchange -> 4 armies
         /// 2nd exchange -> 7 armies
@@ -22,7 +23,8 @@ namespace TEG_api.Common.Models
         /// Default 6
         /// </summary>
         public int NumberOfDices { get; set; } = 6;
+        public int DiceId { get; set; }
         public virtual Dice Dice { get; set; }
-        public virtual ICollection<MatchConfig> MatchSetup { get; set; }
+        public virtual ICollection<MatchConfig> MatchConfigs { get; set; }
     }
 }

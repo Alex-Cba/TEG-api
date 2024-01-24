@@ -7,15 +7,13 @@ namespace TEG_api.Common.Models
     public class Country
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public int Troops { get; set; } = 1;
-        [ForeignKey("PlayerId")]
-        [Column("OwnerID")]
-        public int PlayerId { get; set; }
-        public virtual Player Player { get; set; }
-        [ForeignKey("Continent")]
         public int ContinentId { get; set; }
+        [Column("OwnerID")]
+        public Guid PlayerId { get; set; }
         public virtual Continent Continent { get; set; }
     }
 }
