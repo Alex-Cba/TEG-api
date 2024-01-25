@@ -2,6 +2,8 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using TEG_api.Data;
+using TEG_api.Services.Imp;
+using TEG_api.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,8 @@ builder.Services.AddCors(config =>
                .AllowAnyMethod();
     });
 });
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddMediatR(config =>
 {
@@ -35,6 +39,10 @@ builder.Services.AddDbContext<TEGContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+//Remember Add Scopes for services!!!
+builder.Services.AddScoped<ICRUDService, CRUDImp>();
+
 
 var app = builder.Build();
 

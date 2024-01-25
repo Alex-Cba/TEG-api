@@ -12,6 +12,8 @@ namespace TEG_api.Common.Models
         public Guid PlayerId { get; set; }
         public Guid MatchId { get; set; }
         public int MissionId { get; set; }
+        public int TeamId { get; set; }
+        public virtual Team Team { get; set; }
         public virtual Player Player { get; set; }
         public virtual Match Match { get; set; }
         public virtual Mission Mission { get; set; }

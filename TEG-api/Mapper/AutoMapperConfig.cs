@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration.UserSecrets;
 using System;
+using TEG_api.Common.DTOs;
 using TEG_api.Common.Models;
 
 namespace TEG_api.Mapper
@@ -41,6 +42,27 @@ namespace TEG_api.Mapper
                    .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Address.Country))
                    .ForMember(dest => dest.CityId, opt => opt.MapFrom(src => src.Address.CityId)).ReverseMap(); 
             */
+
+            /*User*/
+            CreateMap<User, UserDTO>().ReverseMap();
+
+            /*Player*/
+            CreateMap<Player, PlayerDTO>().ReverseMap();
+
+            /*Mission*/
+            CreateMap<Mission, MissionDTO>().ReverseMap();
+
+            /*Match*/
+            CreateMap<Match, MatchDTO>().ReverseMap();
+
+            /*Map*/
+            CreateMap<Map, MapDTO>().ReverseMap();
+
+            /*Dice*/
+            CreateMap<Dice, DiceDTO>().ReverseMap();
+
+            /*Configuration*/
+            CreateMap<Configuration, ConfigurationDTO>().ReverseMap();
         }
     }
 }

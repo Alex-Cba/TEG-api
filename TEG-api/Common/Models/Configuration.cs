@@ -23,6 +23,7 @@ namespace TEG_api.Common.Models
         /// Default 6
         /// </summary>
         public int NumberOfDices { get; set; } = 6;
+        public bool IsActive { get; set; }
         public int DiceId { get; set; }
         public virtual Dice Dice { get; set; }
         public virtual ICollection<MatchConfig> MatchConfigs { get; set; }

@@ -8,9 +8,8 @@ namespace TEG_api.Common.Models
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-        public int TeamId { get; set; }
         public Guid? UserId { get; set; }
-        public virtual Team Team { get; set; }
+        public bool IsActive { get; set; }
         public virtual User? User { get; set; }
         public virtual ICollection<PlayerGameSetup> PlayerGameSetups { get; set; }
         public virtual ICollection<Country> Countries { get; set; }
