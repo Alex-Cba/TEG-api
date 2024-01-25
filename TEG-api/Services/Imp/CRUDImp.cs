@@ -42,9 +42,9 @@ namespace TEG_api.Services.Imp
             }
         }
 
-        public async Task<T> GetAsync<T>() where T : class
+        public async Task<List<T>> GetAsync<T>() where T : class
         {
-            var entity = await _db.Set<T>().FirstOrDefaultAsync();
+            var entity = await _db.Set<T>().ToListAsync();
 
             if (entity != null)
             {
@@ -52,7 +52,7 @@ namespace TEG_api.Services.Imp
             }
             else
             {
-                throw new KeyNotFoundException("Not found entity");
+                throw new KeyNotFoundException("Not found registers of entity");
             }
         }
 

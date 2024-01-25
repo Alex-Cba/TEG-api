@@ -4,7 +4,7 @@ namespace TEG_api.Services.Interface
 {
     public interface ICRUDService
     {
-        public Task<T> GetAsync<T>() where T : class;
+        public Task<List<T>> GetAsync<T>() where T : class;
 
         public Task<T> GetByIdAsync<T>(T id) where T : class;
 

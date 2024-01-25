@@ -31,10 +31,8 @@
 
   <ItemGroup>
     <Folder Include="CQRS\Commands\" />
-    <Folder Include="CQRS\Querys\" />
     <Folder Include="Migrations\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Common\DTOs\" />
   </ItemGroup>
 
 </Project>

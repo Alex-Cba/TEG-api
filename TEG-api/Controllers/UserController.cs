@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TEG_api.Services.Interface;
+using TEG_api.CQRS.Querys.All.AllUsers;
 
 namespace TEG_api.Controllers
 {
@@ -15,16 +15,10 @@ namespace TEG_api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("checkStatus")]
-        public IActionResult Status()
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
         {
-            return Ok();
-        }
-
-        [HttpGet("/GetAll")]
-        public Task<IActionResult> GetAll()
-        {
-
+            return Ok(await _mediator.Send(new GetAllUsersQuery()));
         }
     }
 }
