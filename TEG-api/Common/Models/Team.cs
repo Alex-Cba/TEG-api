@@ -10,6 +10,6 @@ namespace TEG_api.Common.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Color { get; set; }
-        public virtual ICollection<Player> Players { get; set; }
+        public virtual ICollection<PlayerGameSetup> PlayerGameSetups { get; set; }
     }
 }

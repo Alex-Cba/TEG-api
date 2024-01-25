@@ -74,15 +74,11 @@ namespace TEG_api.Data
 
             modelBuilder.Entity<Player>(entity =>
             {
-                entity.HasIndex(e => e.TeamId, "IX_Players_TeamId");
-
                 entity.HasIndex(e => e.UserId, "IX_Players_UserId");
 
                 entity.HasIndex(e => e.UserId, "Players_Users_UserId").IsUnique();
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.HasOne(d => d.Team).WithMany(p => p.Players).HasForeignKey(d => d.TeamId);
 
                 entity.HasOne(d => d.User).WithOne(p => p.Player).HasForeignKey<Player>(d => d.UserId);
             });
@@ -90,12 +86,14 @@ namespace TEG_api.Data
             modelBuilder.Entity<PlayerGameSetup>(entity =>
             {
                 entity.ToTable("PlayerGameSetup");
+                entity.HasIndex(e => e.TeamId, "IX_Players_TeamId");
 
                 entity.HasIndex(e => e.MatchId, "IX_PlayerGameSetup_MatchId");
 
                 entity.HasIndex(e => e.MissionId, "IX_PlayerGameSetup_MissionId");
 
                 entity.HasIndex(e => e.PlayerId, "IX_PlayerGameSetup_PlayerId");
+                entity.HasOne(d => d.Team).WithMany(p => p.PlayerGameSetups).HasForeignKey(d => d.TeamId);
 
                 entity.HasOne(d => d.Match).WithMany(p => p.PlayerGameSetups).HasForeignKey(d => d.MatchId);
 

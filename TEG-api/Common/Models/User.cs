@@ -13,6 +13,7 @@ namespace TEG_api.Common.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Password { get; set; }
+        public bool IsActive { get; set; }
         public UserType UserType { get; set; }
         public virtual Player? Player { get; set; }
     }
