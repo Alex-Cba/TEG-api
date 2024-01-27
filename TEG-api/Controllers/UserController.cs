@@ -20,5 +20,11 @@ namespace TEG_api.Controllers
         {
             return Ok(await _mediator.Send(new GetAllUsersQuery()));
         }
+
+        [HttpPost("Create")]
+        public async Task<IActionResult> CreateUser([FromBody] PostEmpleadoCommand)
+        {
+            var response = await _mediator.Send(command);
+        }
     }
 }

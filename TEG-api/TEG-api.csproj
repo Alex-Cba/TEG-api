@@ -30,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Commands\" />
     <Folder Include="Migrations\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
