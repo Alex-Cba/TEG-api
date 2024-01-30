@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Common\Response\" />
     <Folder Include="Migrations\" />
     <Folder Include="Helpers\" />
   </ItemGroup>

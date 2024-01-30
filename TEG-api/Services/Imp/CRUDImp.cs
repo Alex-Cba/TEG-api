@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using TEG_api.Common.Enums.ErrorsResponse;
 using TEG_api.Data;
@@ -10,12 +12,14 @@ namespace TEG_api.Services.Imp
     public class CRUDImp : ICRUDService
     {
         private readonly TEGContext _db;
-        private readonly ILogger _logger;
+        private readonly ILogger<CRUDImp> _logger;
+        private readonly IValidatorFactory _validatorFactory;
 
-        public CRUDImp(TEGContext db, ILogger logger)
+        public CRUDImp(TEGContext db, ILogger<CRUDImp> logger, IValidatorFactory validatorFactory)
         {
             _db = db;
             _logger = logger;
+            _validatorFactory = validatorFactory;
         }
 
         public async Task<bool> CheckExists<T>(Expression<Func<T, bool>> predicate) where T : class
@@ -28,6 +32,26 @@ namespace TEG_api.Services.Imp
                 throw new ExceptionBadRequestClient(ErrorsEnumResponse.GenericErros.GENERIC_ALREADY_EXISTS.ToString());
             }
             return false;
+        }
+
+        public async Task CheckValidator<T>(T requestCommand) where T : class
+        {
+            var validator = _validatorFactory.GetValidator<T>();
+
+            if (validator != null)
+            {
+                var validationResult = await validator.ValidateAsync(requestCommand);
+
+                if (!validationResult.IsValid)
+                {
+                    throw new ExceptionBadRequestClient(validationResult.ToString());
+                }
+            }
+            else
+            {
+                _logger.LogWarning($"Validator Not Found, {typeof(T).Name}");
+                throw new Exception(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
+            }
         }
 
         public async Task<bool> DeleteAsync<T>(T id) where T : class

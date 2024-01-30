@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using TEG_api.Common.Request;
+using TEG_api.CQRS.Commands.Create.User;
 using TEG_api.CQRS.Querys.All.AllUsers;
 
 namespace TEG_api.Controllers
@@ -22,9 +24,11 @@ namespace TEG_api.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> CreateUser([FromBody] PostEmpleadoCommand)
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
-            var response = await _mediator.Send(command);
+            var response = await _mediator.Send(new CreateUserCommand(request));
+
+            return Ok(response);
         }
     }
 }

@@ -6,9 +6,12 @@ namespace TEG_api.Services.Interface
     {
         public Task<List<T>> GetAsync<T>() where T : class;
 
+        public Task CheckValidator<T>(T requestCommand) where T : class;
+
         public Task<T> GetByIdAsync<T>(T id) where T : class;
 
         public Task<T> PostAsyncNotDuplicate<T>(T entity) where T : class;
+        
         public Task<T> PostAsyncDuplicate<T>(T entity) where T : class;
 
         public Task<T> PutAsync<T>(T entity) where T : class;
