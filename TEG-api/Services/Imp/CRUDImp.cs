@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using TEG_api.Common.Enums.ErrorsResponse;
 using TEG_api.Data;
 using TEG_api.Middleware.Exceptions;
 using TEG_api.Services.Interface;
@@ -9,10 +10,12 @@ namespace TEG_api.Services.Imp
     public class CRUDImp : ICRUDService
     {
         private readonly TEGContext _db;
+        private readonly ILogger _logger;
 
-        public CRUDImp(TEGContext db)
+        public CRUDImp(TEGContext db, ILogger logger)
         {
             _db = db;
+            _logger = logger;
         }
 
         public async Task<bool> CheckExists<T>(Expression<Func<T, bool>> predicate) where T : class
@@ -21,7 +24,8 @@ namespace TEG_api.Services.Imp
 
             if (checkExists)
             {
-                throw new ExceptionBadRequestClient("Already exists");
+                _logger.LogWarning("Already exists");
+                throw new ExceptionBadRequestClient(ErrorsEnumResponse.GenericErros.GENERIC_ALREADY_EXISTS.ToString());
             }
             return false;
         }
@@ -38,7 +42,8 @@ namespace TEG_api.Services.Imp
             }
             else
             {
-                throw new KeyNotFoundException($"Not found entity to delete, with {id}");
+                _logger.LogWarning($"Not found entity to delete, with {id}");
+                throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
         }
 
@@ -52,7 +57,8 @@ namespace TEG_api.Services.Imp
             }
             else
             {
-                throw new KeyNotFoundException("Not found registers of entity");
+                _logger.LogWarning("Not found registers of entity");
+                throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
         }
 
@@ -66,7 +72,8 @@ namespace TEG_api.Services.Imp
             }
             else
             {
-                throw new KeyNotFoundException($"Not found entity with ID {id}");
+                _logger.LogWarning($"Not found entity with ID {id}");
+                throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
         }
 
@@ -87,12 +94,14 @@ namespace TEG_api.Services.Imp
                 }
                 else
                 {
-                    throw new ArgumentException($"Not found entity with name {fieldName} in entity {typeof(T).Name}");
+                    _logger.LogWarning($"Not found entity with name {fieldName} in entity {typeof(T).Name}");
+                    throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
                 }
             }
             else
             {
-                throw new ArgumentException($"No entity was found that meets the specified predicate");
+                _logger.LogWarning($"No entity was found that meets the specified predicate");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
         }
 
@@ -126,7 +135,8 @@ namespace TEG_api.Services.Imp
             }
             else
             {
-                throw new KeyNotFoundException($"Entity not found with the provided key values.");
+                _logger.LogWarning($"Entity not found with the provided key values.");
+                throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             };
         }
 
@@ -152,12 +162,14 @@ namespace TEG_api.Services.Imp
                 }
                 else
                 {
-                    throw new ArgumentException($"The entity cannot be deactivated or activated");
+                    _logger.LogWarning($"The entity cannot be deactivated or activated");
+                    throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
                 }
             }
             else
             {
-                throw new ArgumentException($"No found entity with ID {id}");
+                _logger.LogWarning($"No found entity with ID {id}");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
         }
     }
