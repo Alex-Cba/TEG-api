@@ -2,7 +2,6 @@ using MediatR;
 using TEG_api.Data;
 using TEG_api.Services.Interface;
 using AutoMapper;
-using FluentValidation;
 
 namespace TEG_api.CQRS.Commands.Create.User
 {

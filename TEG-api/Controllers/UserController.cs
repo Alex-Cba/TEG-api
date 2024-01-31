@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TEG_api.Common.Request;
 using TEG_api.CQRS.Commands.Create.User;
+using TEG_api.CQRS.Commands.Update.User;
 using TEG_api.CQRS.Querys.All.AllUsers;
 
 namespace TEG_api.Controllers
@@ -27,6 +28,14 @@ namespace TEG_api.Controllers
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
             var response = await _mediator.Send(new CreateUserCommand(request));
+
+            return Ok(response);
+        }
+
+        [HttpPut("Update")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest request)
+        {
+            var response = await _mediator.Send(new UpdateUserCommand(request));
 
             return Ok(response);
         }

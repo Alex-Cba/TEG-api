@@ -5,7 +5,8 @@ using TEG_api.Data;
 
 namespace TEG_api.CQRS.Commands.Create.User
 {
-   public class CreateUserValidator : AbstractValidator<CreateUserCommand> {
+   public class CreateUserValidator : AbstractValidator<CreateUserCommand> 
+    {
 
        private readonly TEGContext _db;
 

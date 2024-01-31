@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using TEG_api.CQRS.Commands.Create.User;
 using TEG_api.Data;
+using TEG_api.Middleware;
 using TEG_api.Services.Imp;
 using TEG_api.Services.Interface;
 
@@ -63,6 +64,8 @@ app.UseHttpsRedirection();
 app.UseCors();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ErrorMiddleware>();
 
 app.MapControllers();
 

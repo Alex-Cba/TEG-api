@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Response\" />
+    <Folder Include="CQRS\Commands\Update\User\" />
     <Folder Include="Migrations\" />
     <Folder Include="Helpers\" />
   </ItemGroup>

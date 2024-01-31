@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Configuration.UserSecrets;
-using System;
 using TEG_api.Common.DTOs;
 using TEG_api.Common.Models;
 using TEG_api.Common.Request;
+using TEG_api.Common.Response;
 
 namespace TEG_api.Mapper
 {
@@ -47,6 +46,8 @@ namespace TEG_api.Mapper
             /*User*/
             CreateMap<User, UserDTO>().ReverseMap();
             CreateMap<CreateUserRequest, User>().ReverseMap();
+            CreateMap<UpdateUserRequest, User>().ReverseMap();
+            CreateMap<UpdateUserResponse, User>().ReverseMap();
 
             /*Player*/
             CreateMap<Player, PlayerDTO>().ReverseMap();

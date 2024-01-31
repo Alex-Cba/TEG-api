@@ -1,6 +1,6 @@
-﻿namespace TEG_api.Common.DTOs
+﻿namespace TEG_api.Common.Request
 {
-    public class UserDTO
+    public class UpdateUserRequest
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
