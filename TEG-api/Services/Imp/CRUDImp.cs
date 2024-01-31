@@ -34,6 +34,18 @@ namespace TEG_api.Services.Imp
             return false;
         }
 
+        public async Task<bool> CheckNotExists<T>(Expression<Func<T, bool>> predicate) where T : class
+        {
+            var checkNotExists = await _db.Set<T>().AnyAsync(predicate);
+
+            if (!checkNotExists)
+            {
+                _logger.LogWarning("Not exists");
+                throw new ExceptionBadRequestClient(ErrorsEnumResponse.GenericErros.GENERIC_NOT_EXISTS.ToString());
+            }
+            return true;
+        }
+
         public async Task CheckValidator<T>(T requestCommand) where T : class
         {
             var validator = _validatorFactory.GetValidator<T>();
@@ -133,7 +145,7 @@ namespace TEG_api.Services.Imp
         {
             await CheckExists<T>(e => e.Equals(entity));
 
-            _db.Set<T>().Add(entity);
+            await _db.Set<T>().AddAsync(entity);
             await _db.SaveChangesAsync();
 
             return entity;
@@ -141,7 +153,7 @@ namespace TEG_api.Services.Imp
 
         public async Task<T> PostAsyncDuplicate<T>(T entity) where T : class
         {
-            _db.Set<T>().Add(entity);
+            await _db.Set<T>().AddAsync(entity);
             await _db.SaveChangesAsync();
 
             return entity;
