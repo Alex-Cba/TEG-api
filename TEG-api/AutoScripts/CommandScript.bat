@@ -34,10 +34,10 @@ set "namespacePath=%targetPath:\=.%"
 REM Create "Class"Command.cs
 (
     echo using MediatR;
-    echo.namespace TEG_api%namespacePath% {
-    echo.    public class %className%Command : IRequest^</*Response*/^> {
-    echo.        public string Example { get; set; }
-    echo.    }
+    echo.namespace TEG_api%namespacePath% 
+    echo.
+    echo {
+    echo.    public record %className%Command(/*Request*/^) : IRequest^</*Response*/^> ;
     echo.}
 ) > "%targetPath%\%className%Command.cs"
 
@@ -47,15 +47,18 @@ REM Create "Class"Handler.cs
     echo using TEG_api.Data;
     echo using TEG_api.Services.Interface;
     echo using AutoMapper;
+    echo.
     echo.namespace TEG_api%namespacePath%
     echo {
-    echo    public class %className%Handler : IRequestHandler^<%className%Command, /*Response*/^> {
+    echo    public class %className%Handler : IRequestHandler^<%className%Command, /*Response*/^>
+    echo. {
     echo        private readonly TEGContext _db;
     echo        private readonly ICRUDService _crudService;
     echo        private readonly IValidator^<CreateUserCommand^> _validator;
     echo        private readonly IMapper _mapper;
     echo.
-    echo.       public %className%Handler(TEGContext db^, ICRUDService crudService^, IValidator^<CreateUserCommand^> validator, IMapper mapper^) {
+    echo.       public %className%Handler(TEGContext db^, ICRUDService crudService^, IValidator^<CreateUserCommand^> validator, IMapper mapper^)
+    echo.       {
     echo            _db = db;
     echo            _crudService = crudService;
     echo            _validator = validator;
@@ -71,11 +74,14 @@ REM Create "Class"Validator.cs
     echo using FluentValidation;
     echo using TEG_api.Data;
     echo.namespace TEG_api%namespacePath%
+    echo.
     echo {
-    echo    public class %className%Validator : AbstractValidator^<%className%Command^> {
+    echo    public class %className%Validator : AbstractValidator^<%className%Command^>
+    echo.   {
     echo        private readonly TEGContext _db;
     echo.
-    echo        public %className%Validator(TEGContext db^) {
+    echo        public %className%Validator(TEGContext db^)
+    echo.       {
     echo.            RuleFor(x =^> x.Example^).NotEmpty(^).WithMessage("Example can't be empty"^);
     echo            _db = db;
     echo        }
