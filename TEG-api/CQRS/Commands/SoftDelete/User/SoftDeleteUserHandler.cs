@@ -22,7 +22,7 @@ namespace TEG_api.CQRS.Commands.SoftDelete.User
         {
             await _crudService.CheckValidator(request);
 
-            await _crudService.SoftDeleteAsync(request.Id.ToString());
+            await _crudService.SoftDeleteAsync(new Common.Models.User() { Id = request.Id});
 
             return true;
         }

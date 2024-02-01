@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Reflection;
 using TEG_api.Common.Enums.ErrorsResponse;
 using TEG_api.Data;
 using TEG_api.Middleware.Exceptions;
@@ -179,37 +180,28 @@ namespace TEG_api.Services.Imp
             };
         }
 
-        public async Task<bool> SoftDeleteAsync<T>(T id) where T : class
+        public async Task<bool> SoftDeleteAsync<T>(T entity) where T : class
         {
-            dynamic entity;
-            string idString = id.ToString();
+            PropertyInfo idProperty = typeof(T).GetProperty("Id");
 
-            if (Guid.TryParse(idString, out Guid guidId))
+            if (idProperty == null)
             {
-                entity = await _db.Set<T>().FindAsync(guidId);
-            }
-            else if (int.TryParse(idString, out int intId))
-            {
-                entity = await _db.Set<T>().FindAsync(intId);
-            }
-            else
-            {
-                _logger.LogWarning($"Not support conversion {id} to Guid or int.");
-                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_SUPPORTED.ToString());
+                _logger.LogWarning($"Entity does not have an 'Id' property");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
 
-            if (entity != null)
+            var entityId = (Guid)idProperty.GetValue(entity);
+
+            var existingEntity = await _db.Set<T>().FindAsync(entityId);
+
+            if (existingEntity != null)
             {
-
-                Type entityType = entity.GetType();
-
-                var propertyInfo = entityType.GetProperty("IsActive");
+                var propertyInfo = existingEntity.GetType().GetProperty("IsActive");
 
                 if (propertyInfo != null && propertyInfo.PropertyType == typeof(bool))
                 {
-                    var value = (bool)propertyInfo.GetValue(entity);
-
-                    propertyInfo.SetValue(entity, !value);
+                    var value = (bool)propertyInfo.GetValue(existingEntity);
+                    propertyInfo.SetValue(existingEntity, !value);
 
                     await _db.SaveChangesAsync();
                     return true;
@@ -222,7 +214,7 @@ namespace TEG_api.Services.Imp
             }
             else
             {
-                _logger.LogWarning($"No found entity with ID {id}");
+                _logger.LogWarning($"No entity found with ID {entityId}");
                 throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
         }
