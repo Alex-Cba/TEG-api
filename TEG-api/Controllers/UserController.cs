@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using TEG_api.Common.Request;
 using TEG_api.CQRS.Commands.Create.User;
+using TEG_api.CQRS.Commands.Delete.User;
+using TEG_api.CQRS.Commands.SoftDelete.User;
 using TEG_api.CQRS.Commands.Update.User;
 using TEG_api.CQRS.Querys.All.AllUsers;
 
@@ -36,6 +38,22 @@ namespace TEG_api.Controllers
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest request)
         {
             var response = await _mediator.Send(new UpdateUserCommand(request));
+
+            return Ok(response);
+        }
+
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> DeleteUser([FromBody] Guid Id)
+        {
+            var response = await _mediator.Send(new DeleteUserCommand(Id));
+
+            return Ok(response);
+        }
+
+        [HttpDelete("SoftDelete")]
+        public async Task<IActionResult> SoftDeleteUser([FromBody] Guid Id)
+        {
+            var response = await _mediator.Send(new SoftDeleteUserCommand(Id));
 
             return Ok(response);
         }

@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Reflection;
 using TEG_api.Common.Enums.ErrorsResponse;
 using TEG_api.Data;
 using TEG_api.Middleware.Exceptions;
@@ -22,11 +23,11 @@ namespace TEG_api.Services.Imp
             _validatorFactory = validatorFactory;
         }
 
-        public async Task<bool> CheckExists<T>(Expression<Func<T, bool>> predicate) where T : class
+        public async Task<bool> CheckNotExists<T>(Expression<Func<T, bool>> predicate) where T : class
         {
-            var checkExists = await _db.Set<T>().AnyAsync(predicate);
+            var checkNotExists = await _db.Set<T>().AnyAsync(predicate);
 
-            if (checkExists)
+            if (checkNotExists)
             {
                 _logger.LogWarning("Already exists");
                 throw new ExceptionBadRequestClient(ErrorsEnumResponse.GenericErros.GENERIC_ALREADY_EXISTS.ToString());
@@ -34,11 +35,11 @@ namespace TEG_api.Services.Imp
             return false;
         }
 
-        public async Task<bool> CheckNotExists<T>(Expression<Func<T, bool>> predicate) where T : class
+        public async Task<bool> CheckExists<T>(Expression<Func<T, bool>> predicate) where T : class
         {
-            var checkNotExists = await _db.Set<T>().AnyAsync(predicate);
+            var checkExists = await _db.Set<T>().AnyAsync(predicate);
 
-            if (!checkNotExists)
+            if (!checkExists)
             {
                 _logger.LogWarning("Not exists");
                 throw new ExceptionBadRequestClient(ErrorsEnumResponse.GenericErros.GENERIC_NOT_EXISTS.ToString());
@@ -143,7 +144,7 @@ namespace TEG_api.Services.Imp
 
         public async Task<T> PostAsyncNotDuplicate<T>(T entity) where T : class
         {
-            await CheckExists<T>(e => e.Equals(entity));
+            await CheckNotExists<T>(e => e.Equals(entity));
 
             await _db.Set<T>().AddAsync(entity);
             await _db.SaveChangesAsync();
@@ -159,11 +160,14 @@ namespace TEG_api.Services.Imp
             return entity;
         }
 
+
+        //TODO: Rever porque no funcionaria para nada !!!
         public async Task<T> PutAsync<T>(T entity) where T : class
         {
-            var entityToUpdate = await _db.Set<T>().Where(e => e.Equals(entity)).FirstOrDefaultAsync();
+            var entityType = typeof(T);
+            var entityToUpdate = await _db.Set<T>().FindAsync(entityType.GetProperty("Id").GetValue(entity));
 
-            if(entityToUpdate != null)
+            if (entityToUpdate != null)
             {
                 _db.Entry(entityToUpdate).CurrentValues.SetValues(entity);
                 await _db.SaveChangesAsync();
@@ -176,22 +180,28 @@ namespace TEG_api.Services.Imp
             };
         }
 
-        public async Task<bool> SoftDeleteAsync<T>(T id) where T : class
+        public async Task<bool> SoftDeleteAsync<T>(T entity) where T : class
         {
-            var entity = await _db.Set<T>().FindAsync(id);
+            PropertyInfo idProperty = typeof(T).GetProperty("Id");
 
-            if (entity != null)
+            if (idProperty == null)
             {
+                _logger.LogWarning($"Entity does not have an 'Id' property");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
+            }
 
-                Type entityType = entity.GetType();
+            var entityId = (Guid)idProperty.GetValue(entity);
 
-                var propertyInfo = entityType.GetProperty("IsActive");
+            var existingEntity = await _db.Set<T>().FindAsync(entityId);
+
+            if (existingEntity != null)
+            {
+                var propertyInfo = existingEntity.GetType().GetProperty("IsActive");
 
                 if (propertyInfo != null && propertyInfo.PropertyType == typeof(bool))
                 {
-                    var value = (bool)propertyInfo.GetValue(entity);
-
-                    propertyInfo.SetValue(entity, !value);
+                    var value = (bool)propertyInfo.GetValue(existingEntity);
+                    propertyInfo.SetValue(existingEntity, !value);
 
                     await _db.SaveChangesAsync();
                     return true;
@@ -204,7 +214,7 @@ namespace TEG_api.Services.Imp
             }
             else
             {
-                _logger.LogWarning($"No found entity with ID {id}");
+                _logger.LogWarning($"No entity found with ID {entityId}");
                 throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
         }

@@ -5,7 +5,8 @@
         public enum GenericErros
         {
             GENERIC_ALREADY_EXISTS, GENERIC_NOT_FOUND,
-            GENERIC_NOT_EXISTS
+            GENERIC_NOT_EXISTS,
+            GENERIC_NOT_SUPPORTED
         }
 
         public enum ErrorCreateUser
@@ -17,6 +18,11 @@
         {
             NONE, USER_NOT_EXISTS, EMAIL_EMPTY, PHONE_EMPTY, NAME_EMPTY,
             ACTIVE_EMPTY, USER_TYPE_EMPTY
+        }
+
+        public enum ErrorDeleteEntities
+        {
+            NOT_FOUND
         }
     }
 }

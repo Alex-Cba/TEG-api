@@ -18,12 +18,12 @@ namespace TEG_api.Services.Interface
 
         public Task<bool> DeleteAsync<T>(T id) where T : class;
 
-        public Task<bool> SoftDeleteAsync<T>(T id) where T : class;
+        public Task<bool> SoftDeleteAsync<T>(T entityWithId) where T : class;
 
         public Task<bool> PatchAsync<T>(Expression<Func<T, bool>> predicate, string fieldName, object newValue) where T : class;
 
-        public Task<bool> CheckExists<T>(Expression<Func<T, bool>> predicate) where T : class;
         public Task<bool> CheckNotExists<T>(Expression<Func<T, bool>> predicate) where T : class;
+        public Task<bool> CheckExists<T>(Expression<Func<T, bool>> predicate) where T : class;
 
     }
 }
