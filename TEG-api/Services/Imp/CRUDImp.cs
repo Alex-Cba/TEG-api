@@ -51,19 +51,18 @@ namespace TEG_api.Services.Imp
         {
             var validator = _validatorFactory.GetValidator<T>();
 
-            if (validator != null)
+            if (validator == null)
             {
-                var validationResult = await validator.ValidateAsync(requestCommand);
 
-                if (!validationResult.IsValid)
-                {
-                    throw new ExceptionBadRequestClient(validationResult.ToString());
-                }
-            }
-            else
-            {
                 _logger.LogWarning($"Validator Not Found, {typeof(T).Name}");
                 throw new Exception(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
+            }
+
+            var validationResult = await validator.ValidateAsync(requestCommand);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ExceptionBadRequestClient(validationResult.ToString());
             }
         }
 
@@ -71,75 +70,67 @@ namespace TEG_api.Services.Imp
         {
             var entity = await _db.Set<T>().FindAsync(id);
 
-            if(entity != null)
-            {
-                _db.Set<T>().Remove(entity);
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            else
+            if(entity == null)
             {
                 _logger.LogWarning($"Not found entity to delete, with {id}");
                 throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
+                
             }
+
+            _db.Set<T>().Remove(entity);
+            await _db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<List<T>> GetAsync<T>() where T : class
         {
             var entity = await _db.Set<T>().ToListAsync();
 
-            if (entity != null)
-            {
-                return entity;
-            }
-            else
+            if (entity == null)
             {
                 _logger.LogWarning("Not found registers of entity");
                 throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
+                
             }
+
+            return entity;
         }
 
         public async Task<T> GetByIdAsync<T>(T id) where T : class
         {
             var entity = await _db.Set<T>().FindAsync(id);
 
-            if (entity != null)
-            {
-                return entity;
-            }
-            else
+            if (entity == null)
             {
                 _logger.LogWarning($"Not found entity with ID {id}");
                 throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
+
+            return entity;
         }
 
         public async Task<bool> PatchAsync<T>(Expression<Func<T, bool>> predicate, string fieldName, object newValue) where T : class
         {
             var entity = await _db.Set<T>().FirstOrDefaultAsync(predicate);
 
-            if (entity != null)
-            {
-                var propertyInfo = typeof(T).GetProperty(fieldName);
-
-                if (propertyInfo != null)
-                {
-                    propertyInfo.SetValue(entity, Convert.ChangeType(newValue, propertyInfo.PropertyType));
-
-                    await _db.SaveChangesAsync();
-                    return true;
-                }
-                else
-                {
-                    _logger.LogWarning($"Not found entity with name {fieldName} in entity {typeof(T).Name}");
-                    throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
-                }
-            }
-            else
+            if (entity == null)
             {
                 _logger.LogWarning($"No entity was found that meets the specified predicate");
                 throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
+
+            var propertyInfo = typeof(T).GetProperty(fieldName);
+
+            if (propertyInfo == null)
+            {
+                _logger.LogWarning($"Not found entity with name {fieldName} in entity {typeof(T).Name}");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
+            }
+
+            propertyInfo.SetValue(entity, Convert.ChangeType(newValue, propertyInfo.PropertyType));
+
+            await _db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<T> PostAsyncNotDuplicate<T>(T entity) where T : class
@@ -167,17 +158,15 @@ namespace TEG_api.Services.Imp
             var entityType = typeof(T);
             var entityToUpdate = await _db.Set<T>().FindAsync(entityType.GetProperty("Id").GetValue(entity));
 
-            if (entityToUpdate != null)
-            {
-                _db.Entry(entityToUpdate).CurrentValues.SetValues(entity);
-                await _db.SaveChangesAsync();
-                return entityToUpdate;
-            }
-            else
+            if (entityToUpdate == null)
             {
                 _logger.LogWarning($"Entity not found with the provided key values.");
                 throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
-            };
+            }
+
+            _db.Entry(entityToUpdate).CurrentValues.SetValues(entity);
+            await _db.SaveChangesAsync();
+            return entityToUpdate;
         }
 
         public async Task<bool> SoftDeleteAsync<T>(T entity) where T : class
@@ -194,27 +183,25 @@ namespace TEG_api.Services.Imp
 
             var existingEntity = await _db.Set<T>().FindAsync(entityId);
 
-            if (existingEntity != null)
+            if (existingEntity == null)
             {
-                var propertyInfo = existingEntity.GetType().GetProperty("IsActive");
+                _logger.LogWarning($"No entity found with ID {entityId}");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
+            }
 
-                if (propertyInfo != null && propertyInfo.PropertyType == typeof(bool))
-                {
-                    var value = (bool)propertyInfo.GetValue(existingEntity);
-                    propertyInfo.SetValue(existingEntity, !value);
+            var propertyInfo = existingEntity.GetType().GetProperty("IsActive");
 
-                    await _db.SaveChangesAsync();
-                    return true;
-                }
-                else
-                {
-                    _logger.LogWarning($"The entity cannot be deactivated or activated");
-                    throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
-                }
+            if (propertyInfo != null && propertyInfo.PropertyType == typeof(bool))
+            {
+                var value = (bool)propertyInfo.GetValue(existingEntity);
+                propertyInfo.SetValue(existingEntity, !value);
+
+                await _db.SaveChangesAsync();
+                return true;
             }
             else
             {
-                _logger.LogWarning($"No entity found with ID {entityId}");
+                _logger.LogWarning($"The entity cannot be deactivated or activated");
                 throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
         }
