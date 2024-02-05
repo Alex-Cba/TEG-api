@@ -151,8 +151,6 @@ namespace TEG_api.Services.Imp
             return entity;
         }
 
-
-        //TODO: Rever porque no funcionaria para nada !!!
         public async Task<T> PutAsync<T>(T entity) where T : class
         {
             var entityType = typeof(T);
