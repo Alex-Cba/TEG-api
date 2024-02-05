@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TEG_api.Common.Request;
-using TEG_api.CQRS.Commands.Create.User;
-using TEG_api.CQRS.Commands.Delete.User;
-using TEG_api.CQRS.Commands.SoftDelete.User;
-using TEG_api.CQRS.Commands.Update.User;
+using TEG_api.CQRS.Commands.User.Create;
+using TEG_api.CQRS.Commands.User.SoftDelete;
+using TEG_api.CQRS.Commands.User.Update;
+using TEG_api.CQRS.Commands.User.Delete;
 using TEG_api.CQRS.Querys.All.AllUsers;
 
 namespace TEG_api.Controllers
