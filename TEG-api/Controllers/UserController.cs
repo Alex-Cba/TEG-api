@@ -5,7 +5,7 @@ using TEG_api.CQRS.Commands.User.Create;
 using TEG_api.CQRS.Commands.User.SoftDelete;
 using TEG_api.CQRS.Commands.User.Update;
 using TEG_api.CQRS.Commands.User.Delete;
-using TEG_api.CQRS.Querys.All.AllUsers;
+using TEG_api.CQRS.Querys.User.All;
 
 namespace TEG_api.Controllers
 {

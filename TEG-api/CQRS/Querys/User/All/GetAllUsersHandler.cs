@@ -27,7 +27,7 @@ namespace TEG_api.CQRS.Querys.User.All
         {
             ListUsers listUsers = new ListUsers();
 
-            var userDB = await _crudService.GetAsync<User>();
+            var userDB = await _crudService.GetAsync<Common.Models.User>();
 
             listUsers.lstUsers = _mapper.Map<List<UserDTO>>(userDB);
 

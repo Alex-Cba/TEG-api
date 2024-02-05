@@ -44,6 +44,7 @@ builder.Services.AddDbContext<TEGContext>(options =>
 
 //Remember Add Scopes for services!!!
 builder.Services.AddScoped<ICRUDService, CRUDImp>();
+builder.Services.AddScoped<IDiceService, DiceService>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUserValidator>();
 builder.Services.AddTransient<IValidatorFactory, ServiceProviderValidatorFactory>();
 builder.Services.AddLogging();

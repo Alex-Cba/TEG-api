@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using TEG_api.Common.DTOs;
-using TEG_api.Common.Models;
-using TEG_api.CQRS.Querys.All.AllUsers;
 using TEG_api.Services.Interface;
 
 namespace TEG_api.CQRS.Querys.Configuration.All
@@ -25,7 +23,7 @@ namespace TEG_api.CQRS.Querys.Configuration.All
         {
             ListConfigurations listConfigurations = new ListConfigurations();
 
-            var configurationDB = await _crudService.GetAsync<Configuration>();
+            var configurationDB = await _crudService.GetAsync<Common.Models.Configuration>();
 
             listConfigurations.lstConfigurations = _mapper.Map<List<ConfigurationDTO>>(configurationDB);
 
