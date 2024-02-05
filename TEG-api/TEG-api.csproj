@@ -30,9 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Commands\Delete\User\" />
-    <Folder Include="CQRS\Commands\SoftDelete\User\" />
-    <Folder Include="CQRS\Commands\Update\User\" />
     <Folder Include="Helpers\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
