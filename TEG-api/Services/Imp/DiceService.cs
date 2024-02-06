@@ -1,5 +1,7 @@
 ﻿using TEG_api.Common.DTOs;
+using TEG_api.Common.Enums.ErrorsResponse;
 using TEG_api.Common.GameLogic;
+using TEG_api.Data;
 using TEG_api.Services.Interface;
 
 namespace TEG_api.Services.Imp
@@ -7,11 +9,13 @@ namespace TEG_api.Services.Imp
     public class DiceService : IDiceService
     {
         private readonly static Random random = new Random();
+        private readonly TEGContext _db;
         private readonly ILogger<DiceService> _logger;
 
-        public DiceService(ILogger<DiceService> logger)
+        public DiceService(ILogger<DiceService> logger, TEGContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public DicesResult ResolveDiceRoll(int NumbDicesA, int NumbDicesD, DiceDTO diceDTO, string AttackerColor, string DefenderColor)
@@ -28,6 +32,8 @@ namespace TEG_api.Services.Imp
 
             dicesResult.Attacker = AttackerColor;
             dicesResult.Defender = DefenderColor;
+
+            //TODO: Determine the winner by consulting the countries
 
             return dicesResult;
         }
@@ -63,6 +69,25 @@ namespace TEG_api.Services.Imp
                     Value = valuesDicesD[i].Value,
                     IsWinner = WinnerD,
                 });
+
+                UnitLost(i, ref dicesResult);
+            }
+        }
+
+        private void UnitLost(int i, ref DicesResult dicesResult)
+        {
+            if (dicesResult.DiceAttacker[i].IsWinner)
+            {
+                dicesResult.UnitLostB++;
+            }
+            else if (dicesResult.DiceDefender[i].IsWinner)
+            {
+                dicesResult.UnitLostA++;
+            }
+            else
+            {
+                _logger.LogWarning($"DicesComparer broken, A: {dicesResult.DiceAttacker[i].IsWinner} | D: {dicesResult.DiceDefender[i].IsWinner}");
+                throw new Exception(ErrorsEnumResponse.UnHandleExceptionErrors.UNHANDLE_EXCEPTION.ToString());
             }
         }
 

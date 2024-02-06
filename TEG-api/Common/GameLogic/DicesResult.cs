@@ -13,7 +13,10 @@
         public List<DiceThrowed> DiceAttacker { get; set; }
         public List<DiceThrowed> DiceDefender { get; set; }
         public string Attacker { get; set; }
+        public int UnitLostA { get; set; }
         public string Defender { get; set; }
+        public int UnitLostB { get; set; }
+        public string Winner  { get; set; }
     }
 
     public class DiceThrowed
