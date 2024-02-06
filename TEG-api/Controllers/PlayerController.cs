@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TEG_api.CQRS.Querys.All.AllPlayers;
+using TEG_api.CQRS.Querys.Players.All;
 
 namespace TEG_api.Controllers
 {

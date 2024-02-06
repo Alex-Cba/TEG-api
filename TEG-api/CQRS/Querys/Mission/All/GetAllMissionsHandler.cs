@@ -24,7 +24,7 @@ namespace TEG_api.CQRS.Querys.Mission.All
         {
             ListMissions listMission = new ListMissions();
 
-            var MissionDB = await _crudService.GetAsync<Mission>();
+            var MissionDB = await _crudService.GetAsync<Common.Models.Mission>();
 
             listMission.lstMissions = _mapper.Map<List<MissionDTO>>(MissionDB);
 

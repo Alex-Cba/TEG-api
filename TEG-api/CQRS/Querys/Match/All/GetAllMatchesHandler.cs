@@ -24,7 +24,7 @@ namespace TEG_api.CQRS.Querys.Match.All
         {
             ListMatches listMatches = new ListMatches();
 
-            var MatchDB = await _crudService.GetAsync<Match>();
+            var MatchDB = await _crudService.GetAsync<Common.Models.Match>();
 
             listMatches.lstMatches = _mapper.Map<List<MatchDTO>>(MatchDB);
 

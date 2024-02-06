@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using TEG_api.Common.DTOs;
-using TEG_api.Common.Models;
-using TEG_api.CQRS.Querys.All.AllMaps;
 using TEG_api.Services.Interface;
 
 namespace TEG_api.CQRS.Querys.Dice.All
@@ -26,7 +24,7 @@ namespace TEG_api.CQRS.Querys.Dice.All
         {
             ListDices listDices = new ListDices();
 
-            var DiceDB = await _crudService.GetAsync<Dice>();
+            var DiceDB = await _crudService.GetAsync<Common.Models.Dice>();
 
             listDices.lstDices = _mapper.Map<List<DiceDTO>>(DiceDB);
 
