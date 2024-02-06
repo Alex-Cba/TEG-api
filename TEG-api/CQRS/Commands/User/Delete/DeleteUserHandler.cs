@@ -26,7 +26,7 @@ namespace TEG_api.CQRS.Commands.User.Delete
 
             var userToDelete = await _db.Users.FirstOrDefaultAsync(u => u.Id == request.Id);
 
-            await _crudService.DeleteAsync(userToDelete);
+            await _crudService.DeleteAsync<Common.Models.User>(userToDelete.Id.ToString());
 
             return new DeleteUserResponse()
             {

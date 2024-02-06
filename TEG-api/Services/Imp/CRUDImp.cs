@@ -23,11 +23,27 @@ namespace TEG_api.Services.Imp
             _validatorFactory = validatorFactory;
         }
 
-        public async Task<bool> CheckNotExists<T>(Expression<Func<T, bool>> predicate) where T : class
+        public async Task<bool> CheckNotExists<T>(string id) where T : class
         {
-            var checkNotExists = await _db.Set<T>().AnyAsync(predicate);
+            Guid GuidId;
+            int IntId;
+            T checkNoExists;
 
-            if (checkNotExists)
+            if (Guid.TryParse(id, out GuidId))
+            {
+                checkNoExists = await _db.Set<T>().FindAsync(GuidId);
+            }
+            else if (int.TryParse(id, out IntId))
+            {
+                checkNoExists = await _db.Set<T>().FindAsync(IntId);
+            }
+            else
+            {
+                _logger.LogWarning($"The method does support IdType {id}");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_SUPPORTED.ToString());
+            }
+
+            if (checkNoExists != null)
             {
                 _logger.LogWarning("Already exists");
                 throw new ExceptionBadRequestClient(ErrorsEnumResponse.GenericErros.GENERIC_ALREADY_EXISTS.ToString());
@@ -35,11 +51,27 @@ namespace TEG_api.Services.Imp
             return false;
         }
 
-        public async Task<bool> CheckExists<T>(Expression<Func<T, bool>> predicate) where T : class
+        public async Task<bool> CheckExists<T>(string id) where T : class
         {
-            var checkExists = await _db.Set<T>().AnyAsync(predicate);
+            Guid GuidId;
+            int IntId;
+            T checkExists;
 
-            if (!checkExists)
+            if (Guid.TryParse(id, out GuidId))
+            {
+                checkExists = await _db.Set<T>().FindAsync(GuidId);
+            }
+            else if(int.TryParse(id, out IntId))
+            {
+                checkExists = await _db.Set<T>().FindAsync(IntId);
+            }
+            else
+            {
+                _logger.LogWarning($"The method does support IdType {id}");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_SUPPORTED.ToString());
+            }
+
+            if (checkExists == null)
             {
                 _logger.LogWarning("Not exists");
                 throw new ExceptionBadRequestClient(ErrorsEnumResponse.GenericErros.GENERIC_NOT_EXISTS.ToString());
@@ -66,11 +98,27 @@ namespace TEG_api.Services.Imp
             }
         }
 
-        public async Task<bool> DeleteAsync<T>(T id) where T : class
+        public async Task<bool> DeleteAsync<T>(string id) where T : class
         {
-            var entity = await _db.Set<T>().FindAsync(id);
+            Guid GuidId;
+            int IntId;
+            T entity;
+            
+            if (Guid.TryParse(id, out GuidId))
+            {
+                entity = await _db.Set<T>().FindAsync(GuidId);
+            }
+            else if (int.TryParse(id, out IntId))
+            {
+                entity = await _db.Set<T>().FindAsync(IntId);
+            }
+            else
+            {
+                _logger.LogWarning($"The method does support IdType {id}");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_SUPPORTED.ToString());
+            }
 
-            if(entity == null)
+            if (entity == null)
             {
                 _logger.LogWarning($"Not found entity to delete, with {id}");
                 throw new KeyNotFoundException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
@@ -109,6 +157,7 @@ namespace TEG_api.Services.Imp
             return entity;
         }
 
+        //Testing!!!
         public async Task<bool> PatchAsync<T>(Expression<Func<T, bool>> predicate, string fieldName, object newValue) where T : class
         {
             var entity = await _db.Set<T>().FirstOrDefaultAsync(predicate);
@@ -135,7 +184,17 @@ namespace TEG_api.Services.Imp
 
         public async Task<T> PostAsyncNotDuplicate<T>(T entity) where T : class
         {
-            await CheckNotExists<T>(e => e.Equals(entity));
+            PropertyInfo idProperty = typeof(T).GetProperty("Id");
+
+            if (idProperty == null)
+            {
+                _logger.LogWarning($"Entity does not have an 'Id' property");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
+            }
+
+            var entityId = idProperty.GetValue(entity).ToString();
+
+            await CheckNotExists<T>(entityId);
 
             await _db.Set<T>().AddAsync(entity);
             await _db.SaveChangesAsync();
@@ -151,10 +210,11 @@ namespace TEG_api.Services.Imp
             return entity;
         }
 
+        //Testing!!!
         public async Task<T> PutAsync<T>(T entity) where T : class
         {
             var entityType = typeof(T);
-            var entityToUpdate = await _db.Set<T>().FindAsync(entityType.GetProperty("Id").GetValue(entity));
+            var entityToUpdate = await _db.Set<T>().FindAsync(entityType.GetProperty("Id"));
 
             if (entityToUpdate == null)
             {
