@@ -13,6 +13,6 @@ namespace TEG_api.Common.Models
         public int ValueOfTroops { get; set; }
         public int MapId { get; set; }
         public virtual Map Map { get; set; }
-        public virtual ICollection<Country> Countries { get; set;}
+        public virtual ICollection<Country>? Countries { get; set;}
     }
 }

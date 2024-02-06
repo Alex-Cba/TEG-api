@@ -15,5 +15,6 @@ namespace TEG_api.Common.Models
         [Column("OwnerID")]
         public Guid PlayerId { get; set; }
         public virtual Continent Continent { get; set; }
+        public virtual ICollection<Country> BorderingCountries { get; set; }
     }
 }

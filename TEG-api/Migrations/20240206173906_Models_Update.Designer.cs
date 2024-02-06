@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TEG_api.Data;
@@ -11,9 +12,11 @@ using TEG_api.Data;
 namespace TEG_api.Migrations
 {
     [DbContext(typeof(TEGContext))]
-    partial class TEGContextModelSnapshot : ModelSnapshot
+    [Migration("20240206173906_Models_Update")]
+    partial class Models_Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,9 +91,6 @@ namespace TEG_api.Migrations
                     b.Property<int>("ContinentId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("CountryId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -103,8 +103,6 @@ namespace TEG_api.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
 
                     b.HasIndex(new[] { "ContinentId" }, "IX_Countries_ContinentId");
 
@@ -395,10 +393,6 @@ namespace TEG_api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TEG_api.Common.Models.Country", null)
-                        .WithMany("BorderingCountries")
-                        .HasForeignKey("CountryId");
-
                     b.HasOne("TEG_api.Common.Models.Player", null)
                         .WithMany("Countries")
                         .HasForeignKey("PlayerId")
@@ -490,11 +484,6 @@ namespace TEG_api.Migrations
             modelBuilder.Entity("TEG_api.Common.Models.Continent", b =>
                 {
                     b.Navigation("Countries");
-                });
-
-            modelBuilder.Entity("TEG_api.Common.Models.Country", b =>
-                {
-                    b.Navigation("BorderingCountries");
                 });
 
             modelBuilder.Entity("TEG_api.Common.Models.Dice", b =>

@@ -6,7 +6,7 @@
         {
             GENERIC_ALREADY_EXISTS, GENERIC_NOT_FOUND,
             GENERIC_NOT_EXISTS,
-            GENERIC_NOT_SUPPORTED
+            GENERIC_NOT_SUPPORTED, GENERIC_EMPTY, GENERIC_MINVALUE
         }
 
         public enum ErrorCreateUser

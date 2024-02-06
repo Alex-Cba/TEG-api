@@ -58,14 +58,23 @@ namespace TEG_api.Mapper
             /*Match*/
             CreateMap<Match, MatchDTO>().ReverseMap();
 
+
             /*Map*/
             CreateMap<Map, MapDTO>().ReverseMap();
+            CreateMap<Map, CreateMapRequest>().ReverseMap();
 
             /*Dice*/
             CreateMap<Dice, DiceDTO>().ReverseMap();
 
             /*Configuration*/
             CreateMap<Configuration, ConfigurationDTO>().ReverseMap();
+
+            /*Countries*/
+            CreateMap<Country, CountryDTO>().ReverseMap();
+
+            /*Continent*/
+            CreateMap<Continent, ContinentDTO>().ReverseMap();
+            CreateMap<Continent, CreateContinentRequest>().ReverseMap();
         }
     }
 }
