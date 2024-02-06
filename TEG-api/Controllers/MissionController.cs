@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TEG_api.CQRS.Querys.All.AllMissions;
+using TEG_api.CQRS.Querys.Mission.All;
 
 namespace TEG_api.Controllers
 {

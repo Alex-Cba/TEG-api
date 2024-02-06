@@ -2,6 +2,10 @@
 {
     public class ErrorsEnumResponse
     {
+        public enum UnHandleExceptionErrors
+        {
+            UNHANDLE_EXCEPTION
+        }
         public enum GenericErros
         {
             GENERIC_ALREADY_EXISTS, GENERIC_NOT_FOUND,

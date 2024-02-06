@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TEG_api.Common.Request;
 using TEG_api.CQRS.Commands.Create.Map;
 using TEG_api.CQRS.Querys.All.AllMaps;
+using TEG_api.CQRS.Querys.Maps.All;
 
 namespace TEG_api.Controllers
 {

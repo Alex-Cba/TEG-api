@@ -1,7 +1,7 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using TEG_api.CQRS.Commands.Create.User;
+using TEG_api.CQRS.Commands.User.Create;
 using TEG_api.Data;
 using TEG_api.Middleware;
 using TEG_api.Services.Imp;
@@ -44,6 +44,7 @@ builder.Services.AddDbContext<TEGContext>(options =>
 
 //Remember Add Scopes for services!!!
 builder.Services.AddScoped<ICRUDService, CRUDImp>();
+builder.Services.AddScoped<IDiceService, DiceService>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUserValidator>();
 builder.Services.AddTransient<IValidatorFactory, ServiceProviderValidatorFactory>();
 builder.Services.AddLogging();
