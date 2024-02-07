@@ -88,6 +88,9 @@ namespace TEG_api.Migrations
                     b.Property<int>("ContinentId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("CountryId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -100,6 +103,8 @@ namespace TEG_api.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.HasIndex(new[] { "ContinentId" }, "IX_Countries_ContinentId");
 
@@ -145,15 +150,15 @@ namespace TEG_api.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("DiceType")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Number")
+                    b.Property<int>("Faces")
                         .HasColumnType("integer");
 
                     b.Property<decimal?>("Probability")
                         .HasPrecision(5, 2)
                         .HasColumnType("numeric(5,2)");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -167,6 +172,10 @@ namespace TEG_api.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
@@ -187,20 +196,22 @@ namespace TEG_api.Migrations
                     b.Property<DateTimeOffset?>("EndDateUTC")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("MapId")
+                    b.Property<int?>("MapId")
                         .HasColumnType("integer");
 
                     b.Property<int>("MatchConfigId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("MatchStatus")
-                        .HasColumnType("integer");
+                    b.Property<string>("MatchStatus")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<DateTimeOffset?>("SaveDateUTC")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Winner")
-                        .HasColumnType("integer");
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -386,6 +397,10 @@ namespace TEG_api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TEG_api.Common.Models.Country", null)
+                        .WithMany("BorderingCountries")
+                        .HasForeignKey("CountryId");
+
                     b.HasOne("TEG_api.Common.Models.Player", null)
                         .WithMany("Countries")
                         .HasForeignKey("PlayerId")
@@ -399,9 +414,7 @@ namespace TEG_api.Migrations
                 {
                     b.HasOne("TEG_api.Common.Models.Map", "Map")
                         .WithMany("Matches")
-                        .HasForeignKey("MapId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MapId");
 
                     b.HasOne("TEG_api.Common.Models.MatchConfig", "MatchConfig")
                         .WithMany("Matches")
@@ -477,6 +490,11 @@ namespace TEG_api.Migrations
             modelBuilder.Entity("TEG_api.Common.Models.Continent", b =>
                 {
                     b.Navigation("Countries");
+                });
+
+            modelBuilder.Entity("TEG_api.Common.Models.Country", b =>
+                {
+                    b.Navigation("BorderingCountries");
                 });
 
             modelBuilder.Entity("TEG_api.Common.Models.Dice", b =>

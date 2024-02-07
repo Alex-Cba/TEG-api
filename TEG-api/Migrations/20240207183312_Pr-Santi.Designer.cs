@@ -12,8 +12,8 @@ using TEG_api.Data;
 namespace TEG_api.Migrations
 {
     [DbContext(typeof(TEGContext))]
-    [Migration("20240124201004_Models Migration")]
-    partial class ModelsMigration
+    [Migration("20240207183312_Pr-Santi")]
+    partial class PrSanti
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,9 @@ namespace TEG_api.Migrations
 
                     b.Property<int>("DiceId")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
 
                     b.Property<int>("NumberOfDices")
                         .HasColumnType("integer");
@@ -88,6 +91,9 @@ namespace TEG_api.Migrations
                     b.Property<int>("ContinentId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("CountryId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -101,11 +107,42 @@ namespace TEG_api.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CountryId");
+
                     b.HasIndex(new[] { "ContinentId" }, "IX_Countries_ContinentId");
 
                     b.HasIndex(new[] { "PlayerId" }, "IX_Countries_PlayerId");
 
                     b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("TEG_api.Common.Models.DbHistory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Action")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("RecordId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TableName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("Timestamp")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DbHistories");
                 });
 
             modelBuilder.Entity("TEG_api.Common.Models.Dice", b =>
@@ -116,15 +153,15 @@ namespace TEG_api.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("DiceType")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Number")
+                    b.Property<int>("Faces")
                         .HasColumnType("integer");
 
                     b.Property<decimal?>("Probability")
                         .HasPrecision(5, 2)
                         .HasColumnType("numeric(5,2)");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -138,6 +175,13 @@ namespace TEG_api.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
 
                     b.HasKey("Id");
 
@@ -155,20 +199,22 @@ namespace TEG_api.Migrations
                     b.Property<DateTimeOffset?>("EndDateUTC")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("MapId")
+                    b.Property<int?>("MapId")
                         .HasColumnType("integer");
 
                     b.Property<int>("MatchConfigId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("MatchStatus")
-                        .HasColumnType("integer");
+                    b.Property<string>("MatchStatus")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<DateTimeOffset?>("SaveDateUTC")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Winner")
-                        .HasColumnType("integer");
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -212,6 +258,9 @@ namespace TEG_api.Migrations
                     b.Property<int>("DifficultyType")
                         .HasColumnType("integer");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
                     b.HasKey("Id");
 
                     b.ToTable("Missions");
@@ -222,15 +271,13 @@ namespace TEG_api.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
-                    b.Property<int>("TeamId")
-                        .HasColumnType("integer");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
 
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex(new[] { "TeamId" }, "IX_Players_TeamId");
 
                     b.HasIndex(new[] { "UserId" }, "IX_Players_UserId");
 
@@ -257,6 +304,9 @@ namespace TEG_api.Migrations
                     b.Property<Guid>("PlayerId")
                         .HasColumnType("uuid");
 
+                    b.Property<int>("TeamId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex(new[] { "MatchId" }, "IX_PlayerGameSetup_MatchId");
@@ -264,6 +314,8 @@ namespace TEG_api.Migrations
                     b.HasIndex(new[] { "MissionId" }, "IX_PlayerGameSetup_MissionId");
 
                     b.HasIndex(new[] { "PlayerId" }, "IX_PlayerGameSetup_PlayerId");
+
+                    b.HasIndex(new[] { "TeamId" }, "IX_Players_TeamId");
 
                     b.ToTable("PlayerGameSetup", (string)null);
                 });
@@ -293,6 +345,9 @@ namespace TEG_api.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -345,6 +400,10 @@ namespace TEG_api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TEG_api.Common.Models.Country", null)
+                        .WithMany("BorderingCountries")
+                        .HasForeignKey("CountryId");
+
                     b.HasOne("TEG_api.Common.Models.Player", null)
                         .WithMany("Countries")
                         .HasForeignKey("PlayerId")
@@ -358,9 +417,7 @@ namespace TEG_api.Migrations
                 {
                     b.HasOne("TEG_api.Common.Models.Map", "Map")
                         .WithMany("Matches")
-                        .HasForeignKey("MapId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MapId");
 
                     b.HasOne("TEG_api.Common.Models.MatchConfig", "MatchConfig")
                         .WithMany("Matches")
@@ -386,17 +443,9 @@ namespace TEG_api.Migrations
 
             modelBuilder.Entity("TEG_api.Common.Models.Player", b =>
                 {
-                    b.HasOne("TEG_api.Common.Models.Team", "Team")
-                        .WithMany("Players")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("TEG_api.Common.Models.User", "User")
                         .WithOne("Player")
                         .HasForeignKey("TEG_api.Common.Models.Player", "UserId");
-
-                    b.Navigation("Team");
 
                     b.Navigation("User");
                 });
@@ -421,11 +470,19 @@ namespace TEG_api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TEG_api.Common.Models.Team", "Team")
+                        .WithMany("PlayerGameSetups")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Match");
 
                     b.Navigation("Mission");
 
                     b.Navigation("Player");
+
+                    b.Navigation("Team");
                 });
 
             modelBuilder.Entity("TEG_api.Common.Models.Configuration", b =>
@@ -436,6 +493,11 @@ namespace TEG_api.Migrations
             modelBuilder.Entity("TEG_api.Common.Models.Continent", b =>
                 {
                     b.Navigation("Countries");
+                });
+
+            modelBuilder.Entity("TEG_api.Common.Models.Country", b =>
+                {
+                    b.Navigation("BorderingCountries");
                 });
 
             modelBuilder.Entity("TEG_api.Common.Models.Dice", b =>
@@ -474,7 +536,7 @@ namespace TEG_api.Migrations
 
             modelBuilder.Entity("TEG_api.Common.Models.Team", b =>
                 {
-                    b.Navigation("Players");
+                    b.Navigation("PlayerGameSetups");
                 });
 
             modelBuilder.Entity("TEG_api.Common.Models.User", b =>

@@ -6,6 +6,7 @@ using TEG_api.CQRS.Commands.User.SoftDelete;
 using TEG_api.CQRS.Commands.User.Update;
 using TEG_api.CQRS.Commands.User.Delete;
 using TEG_api.CQRS.Querys.User.All;
+using TEG_api.CQRS.Querys.User.ById;
 
 namespace TEG_api.Controllers
 {
@@ -24,6 +25,12 @@ namespace TEG_api.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _mediator.Send(new GetAllUsersQuery()));
+        }
+
+        [HttpGet("GetById/{Id}")]
+        public async Task<IActionResult> GetById([FromRoute] string Id)
+        {
+            return Ok(await _mediator.Send(new GetByIdUsersQuery(Id)));
         }
 
         [HttpPost("Create")]
