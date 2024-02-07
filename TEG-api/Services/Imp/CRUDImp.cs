@@ -144,9 +144,25 @@ namespace TEG_api.Services.Imp
             return entity;
         }
 
-        public async Task<T> GetByIdAsync<T>(T id) where T : class
+        public async Task<T> GetByIdAsync<T>(string id) where T : class
         {
-            var entity = await _db.Set<T>().FindAsync(id);
+            Guid GuidId;
+            int IntId;
+            T entity;
+
+            if (Guid.TryParse(id, out GuidId))
+            {
+                entity = await _db.Set<T>().FindAsync(GuidId);
+            }
+            else if (int.TryParse(id, out IntId))
+            {
+                entity = await _db.Set<T>().FindAsync(IntId);
+            }
+            else
+            {
+                _logger.LogWarning($"The method does support IdType {id}");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_SUPPORTED.ToString());
+            }
 
             if (entity == null)
             {

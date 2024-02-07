@@ -12,8 +12,8 @@ using TEG_api.Data;
 namespace TEG_api.Migrations
 {
     [DbContext(typeof(TEGContext))]
-    [Migration("20240125144553_Fix Models")]
-    partial class FixModels
+    [Migration("20240207182615_First Migration")]
+    partial class FirstMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -111,6 +111,35 @@ namespace TEG_api.Migrations
                     b.ToTable("Countries");
                 });
 
+            modelBuilder.Entity("TEG_api.Common.Models.DbHistory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Action")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("RecordId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TableName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("Timestamp")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DbHistories");
+                });
+
             modelBuilder.Entity("TEG_api.Common.Models.Dice", b =>
                 {
                     b.Property<int>("Id")
@@ -119,15 +148,15 @@ namespace TEG_api.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("DiceType")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Number")
+                    b.Property<int>("Faces")
                         .HasColumnType("integer");
 
                     b.Property<decimal?>("Probability")
                         .HasPrecision(5, 2)
                         .HasColumnType("numeric(5,2)");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -167,14 +196,16 @@ namespace TEG_api.Migrations
                     b.Property<int>("MatchConfigId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("MatchStatus")
-                        .HasColumnType("integer");
+                    b.Property<string>("MatchStatus")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<DateTimeOffset?>("SaveDateUTC")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Winner")
-                        .HasColumnType("integer");
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

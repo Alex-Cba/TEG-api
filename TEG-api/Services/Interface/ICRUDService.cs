@@ -8,7 +8,7 @@ namespace TEG_api.Services.Interface
 
         public Task CheckValidator<T>(T requestCommand) where T : class;
 
-        public Task<T> GetByIdAsync<T>(T id) where T : class;
+        public Task<T> GetByIdAsync<T>(string id) where T : class;
 
         public Task<T> PostAsyncNotDuplicate<T>(T entity) where T : class;
         

@@ -9,8 +9,9 @@ namespace TEG_api.Common.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public string Description { get; set; }
         public bool IsActive { get; set; }
-        public virtual ICollection<Match> Matches { get; set; }
-        public virtual ICollection<Continent> Continents { get; set; }
+        public virtual ICollection<Match>? Matches { get; set; }
+        public virtual ICollection<Continent>? Continents { get; set; }
     }
 }

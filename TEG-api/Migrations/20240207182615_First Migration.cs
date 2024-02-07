@@ -7,19 +7,35 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace TEG_api.Migrations
 {
     /// <inheritdoc />
-    public partial class ModelsMigration : Migration
+    public partial class FirstMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "DbHistories",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    TableName = table.Column<string>(type: "text", nullable: false),
+                    RecordId = table.Column<string>(type: "text", nullable: false),
+                    Action = table.Column<string>(type: "text", nullable: true),
+                    Timestamp = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    Details = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DbHistories", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Dices",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Number = table.Column<int>(type: "integer", nullable: false),
-                    DiceType = table.Column<int>(type: "integer", nullable: false),
+                    Value = table.Column<int>(type: "integer", nullable: false),
+                    Faces = table.Column<int>(type: "integer", nullable: false),
                     Probability = table.Column<decimal>(type: "numeric(5,2)", precision: 5, scale: 2, nullable: true)
                 },
                 constraints: table =>
@@ -32,7 +48,8 @@ namespace TEG_api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,6 +63,7 @@ namespace TEG_api.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Description = table.Column<string>(type: "text", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     DifficultyType = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -75,6 +93,7 @@ namespace TEG_api.Migrations
                     Email = table.Column<string>(type: "text", nullable: false),
                     Phone = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     UserType = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
@@ -91,6 +110,7 @@ namespace TEG_api.Migrations
                     Description = table.Column<string>(type: "text", nullable: true),
                     ChangesInGame = table.Column<int>(type: "integer", nullable: false),
                     NumberOfDices = table.Column<int>(type: "integer", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     DiceId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -130,18 +150,12 @@ namespace TEG_api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    TeamId = table.Column<int>(type: "integer", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: true)
+                    UserId = table.Column<Guid>(type: "uuid", nullable: true),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Players", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Players_Teams_TeamId",
-                        column: x => x.TeamId,
-                        principalTable: "Teams",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Players_Users_UserId",
                         column: x => x.UserId,
@@ -204,8 +218,8 @@ namespace TEG_api.Migrations
                     CreationDateUTC = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     SaveDateUTC = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     EndDateUTC = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
-                    MatchStatus = table.Column<int>(type: "integer", nullable: false),
-                    Winner = table.Column<int>(type: "integer", nullable: false),
+                    MatchStatus = table.Column<string>(type: "text", nullable: false),
+                    Winner = table.Column<string>(type: "text", nullable: false),
                     MapId = table.Column<int>(type: "integer", nullable: false),
                     MatchConfigId = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -234,7 +248,8 @@ namespace TEG_api.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     PlayerId = table.Column<Guid>(type: "uuid", nullable: false),
                     MatchId = table.Column<Guid>(type: "uuid", nullable: false),
-                    MissionId = table.Column<int>(type: "integer", nullable: false)
+                    MissionId = table.Column<int>(type: "integer", nullable: false),
+                    TeamId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -255,6 +270,12 @@ namespace TEG_api.Migrations
                         name: "FK_PlayerGameSetup_Players_PlayerId",
                         column: x => x.PlayerId,
                         principalTable: "Players",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PlayerGameSetup_Teams_TeamId",
+                        column: x => x.TeamId,
+                        principalTable: "Teams",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -311,7 +332,7 @@ namespace TEG_api.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Players_TeamId",
-                table: "Players",
+                table: "PlayerGameSetup",
                 column: "TeamId");
 
             migrationBuilder.CreateIndex(
@@ -333,6 +354,9 @@ namespace TEG_api.Migrations
                 name: "Countries");
 
             migrationBuilder.DropTable(
+                name: "DbHistories");
+
+            migrationBuilder.DropTable(
                 name: "PlayerGameSetup");
 
             migrationBuilder.DropTable(
@@ -348,13 +372,13 @@ namespace TEG_api.Migrations
                 name: "Players");
 
             migrationBuilder.DropTable(
+                name: "Teams");
+
+            migrationBuilder.DropTable(
                 name: "Maps");
 
             migrationBuilder.DropTable(
                 name: "MatchConfigs");
-
-            migrationBuilder.DropTable(
-                name: "Teams");
 
             migrationBuilder.DropTable(
                 name: "Users");
