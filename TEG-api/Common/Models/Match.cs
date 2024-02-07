@@ -9,11 +9,11 @@ namespace TEG_api.Common.Models
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-        public DateTimeOffset CreationDateUTC { get; set; }
+        public DateTimeOffset CreationDateUTC { get; set; } = DateTimeOffset.Now;
         public DateTimeOffset? SaveDateUTC { get; set; }
         public DateTimeOffset? EndDateUTC { get; set; }
         public MatchStatus MatchStatus { get; set; }
-        public int Winner { get; set; }
+        public string Winner { get; set; }
         public int MapId { get; set; }
         public int MatchConfigId { get; set; }
         public virtual Map Map { get; set; }

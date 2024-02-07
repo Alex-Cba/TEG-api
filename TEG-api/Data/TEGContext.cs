@@ -114,6 +114,14 @@ namespace TEG_api.Data
                         v => (UserType)Enum.Parse(typeof(UserType), v)
                 );
 
+            modelBuilder
+                .Entity<Match>()
+                .Property(e => e.MatchStatus)
+                .HasConversion(
+                        v => v.ToString(),
+                        v => (MatchStatus)Enum.Parse(typeof(MatchStatus), v)
+                );
+
             OnModelCreatingPartial(modelBuilder);
         }
 
