@@ -1,6 +1,7 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using TEG_api.Controllers;
 using TEG_api.CQRS.Commands.User.Create;
 using TEG_api.Data;
 using TEG_api.Middleware;
@@ -50,7 +51,6 @@ builder.Services.AddTransient<IValidatorFactory, ServiceProviderValidatorFactory
 builder.Services.AddLogging();
 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -65,6 +65,12 @@ app.UseHttpsRedirection();
 app.UseCors();
 
 app.UseAuthorization();
+
+app.Map("/websocket", builder =>
+{
+    builder.UseWebSockets();
+    builder.UseMiddleware<WebSocketController>();
+});
 
 app.UseMiddleware<ErrorMiddleware>();
 

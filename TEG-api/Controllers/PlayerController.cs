@@ -20,5 +20,11 @@ namespace TEG_api.Controllers
         {
             return Ok(await _mediator.Send(new GetAllPlayersQuery()));
         }
+
+        private string GetValue(string claim, string defaultValue = "") =>
+           User.Claims
+               .FirstOrDefault(x => x.Type.Equals(claim, StringComparison.OrdinalIgnoreCase))
+               ?.Value ??
+           defaultValue;
     }
 }
