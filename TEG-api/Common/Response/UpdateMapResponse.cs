@@ -1,8 +1,7 @@
-﻿namespace TEG_api.Common.DTOs
+﻿namespace TEG_api.Common.Response
 {
-    public class MapDTO
+    public class UpdateMapResponse
     {
-        public int Id { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
     }

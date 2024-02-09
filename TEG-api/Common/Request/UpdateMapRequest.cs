@@ -1,6 +1,6 @@
-﻿namespace TEG_api.Common.DTOs
+﻿namespace TEG_api.Common.Request
 {
-    public class MapDTO
+    public class UpdateMapRequest
     {
         public int Id { get; set; }
         public string Description { get; set; }

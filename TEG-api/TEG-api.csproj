@@ -30,6 +30,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="CQRS\Commands\Country\Delete\" />
+    <Folder Include="CQRS\Commands\Country\SoftDelete\" />
+    <Folder Include="CQRS\Commands\Continent\Delete\" />
+    <Folder Include="CQRS\Commands\Continent\SoftDelete\" />
+    <Folder Include="CQRS\Commands\Map\Delete\" />
+    <Folder Include="CQRS\Commands\Map\SoftDelete\" />
     <Folder Include="Helpers\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
