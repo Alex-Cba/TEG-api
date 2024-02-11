@@ -2,8 +2,17 @@
 using Microsoft.AspNetCore.Mvc;
 using TEG_api.Common.Request;
 using TEG_api.CQRS.Commands.Continent.Create;
+using TEG_api.CQRS.Commands.Continent.Delete;
+using TEG_api.CQRS.Commands.Continent.SoftDelete;
+using TEG_api.CQRS.Commands.Continent.Update;
 using TEG_api.CQRS.Commands.Country.Create;
+using TEG_api.CQRS.Commands.Country.Delete;
+using TEG_api.CQRS.Commands.Country.SoftDelete;
+using TEG_api.CQRS.Commands.Country.Update;
 using TEG_api.CQRS.Commands.Map.Create;
+using TEG_api.CQRS.Commands.Map.Delete;
+using TEG_api.CQRS.Commands.Map.SoftDelete;
+using TEG_api.CQRS.Commands.Map.Update;
 using TEG_api.CQRS.Querys.Continents.All;
 using TEG_api.CQRS.Querys.Continents.ById;
 using TEG_api.CQRS.Querys.Countrys.All;
@@ -14,7 +23,7 @@ using TEG_api.CQRS.Querys.Maps.ById;
 namespace TEG_api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/World")]
     public class MapController : Controller
     {
         private readonly IMediator _mediator;
@@ -55,7 +64,7 @@ namespace TEG_api.Controllers
         }
 
         [HttpDelete("Map/Delete")]
-        public async Task<IActionResult> DeleteMap([FromBody] Guid Id)
+        public async Task<IActionResult> DeleteMap([FromQuery] int Id)
         {
             var response = await _mediator.Send(new DeleteMapCommand(Id));
 
@@ -63,7 +72,7 @@ namespace TEG_api.Controllers
         }
 
         [HttpDelete("Map/SoftDelete")]
-        public async Task<IActionResult> SoftDeleteMap([FromBody] Guid Id)
+        public async Task<IActionResult> SoftDeleteMap([FromQuery] int Id)
         {
             var response = await _mediator.Send(new SoftDeleteMapCommand(Id));
 
@@ -101,7 +110,7 @@ namespace TEG_api.Controllers
         }
 
         [HttpDelete("Continent/Delete")]
-        public async Task<IActionResult> DeleteContinent([FromBody] Guid Id)
+        public async Task<IActionResult> DeleteContinent([FromQuery] int Id)
         {
             var response = await _mediator.Send(new DeleteContinentCommand(Id));
 
@@ -109,7 +118,7 @@ namespace TEG_api.Controllers
         }
 
         [HttpDelete("Continent/SoftDelete")]
-        public async Task<IActionResult> SoftDeleteContinent([FromBody] Guid Id)
+        public async Task<IActionResult> SoftDeleteContinent([FromQuery] int Id)
         {
             var response = await _mediator.Send(new SoftDeleteContinentCommand(Id));
 
@@ -147,7 +156,7 @@ namespace TEG_api.Controllers
         }
 
         [HttpDelete("Country/Delete")]
-        public async Task<IActionResult> DeleteCountry([FromBody] Guid Id)
+        public async Task<IActionResult> DeleteCountry([FromQuery] int Id)
         {
             var response = await _mediator.Send(new DeleteCountryCommand(Id));
 
@@ -155,7 +164,7 @@ namespace TEG_api.Controllers
         }
 
         [HttpDelete("Country/SoftDelete")]
-        public async Task<IActionResult> SoftDeleteCountry([FromBody] Guid Id)
+        public async Task<IActionResult> SoftDeleteCountry([FromQuery] int Id)
         {
             var response = await _mediator.Send(new SoftDeleteCountryCommand(Id));
 

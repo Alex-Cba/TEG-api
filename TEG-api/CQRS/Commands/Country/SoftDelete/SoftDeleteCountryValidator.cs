@@ -2,13 +2,14 @@ using FluentValidation;
 using TEG_api.Common.Enums.ErrorsResponse;
 using TEG_api.Data;
 
-namespace TEG_api.CQRS.Commands.User.Delete
+namespace TEG_api.CQRS.Commands.Country.SoftDelete
+
 {
-    public class DeleteUserValidator : AbstractValidator<DeleteUserCommand>
+    public class SoftDeleteCountryValidator : AbstractValidator<SoftDeleteCountryCommand>
     {
         private readonly TEGContext _db;
 
-        public DeleteUserValidator(TEGContext db)
+        public SoftDeleteCountryValidator(TEGContext db)
         {
             RuleFor(x => x.Id).NotEmpty().WithMessage(ErrorsEnumResponse.ErrorDeleteEntities.ID_EMPTY.ToString());
             _db = db;

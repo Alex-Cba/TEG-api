@@ -14,7 +14,7 @@
         }
         public enum ErrorDeleteEntities
         {
-            NOT_FOUND
+            NOT_FOUND, ID_EMPTY
         }
 
         #region User Errors

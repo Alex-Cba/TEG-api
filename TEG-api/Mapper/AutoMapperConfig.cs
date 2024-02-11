@@ -60,6 +60,21 @@ namespace TEG_api.Mapper
 
             /*Map*/
             CreateMap<Map, MapDTO>().ReverseMap();
+            CreateMap<Map, CreateMapRequest>().ReverseMap();
+            CreateMap<Map, UpdateMapRequest>().ReverseMap();
+            CreateMap<Map, UpdateMapResponse>().ReverseMap();
+
+            /*Continent*/
+            CreateMap<Continent, ContinentDTO>().ReverseMap();
+            CreateMap<Continent, CreateContinentRequest>().ReverseMap();
+            CreateMap<Continent, UpdateContinentRequest>().ReverseMap();
+            CreateMap<Continent, UpdateContinentResponse>().ReverseMap();
+
+            /*Country*/
+            CreateMap<Country, CountryDTO>().ReverseMap();
+            CreateMap<Country, CreateCountryRequest>().ReverseMap();
+            CreateMap<Country, UpdateCountryRequest>().ReverseMap();
+            CreateMap<Country, UpdateCountryResponse>().ReverseMap();
 
             /*Dice*/
             CreateMap<Dice, DiceDTO>().ReverseMap();

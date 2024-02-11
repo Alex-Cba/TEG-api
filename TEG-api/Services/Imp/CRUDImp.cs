@@ -230,7 +230,10 @@ namespace TEG_api.Services.Imp
         public async Task<T> PutAsync<T>(T entity) where T : class
         {
             var entityType = typeof(T);
-            var entityToUpdate = await _db.Set<T>().FindAsync(entityType.GetProperty("Id"));
+            var idProperty = entityType.GetProperty("Id");
+            var idValue = idProperty.GetValue(entity);
+
+            var entityToUpdate = await _db.Set<T>().FindAsync(idValue);
 
             if (entityToUpdate == null)
             {
@@ -245,7 +248,12 @@ namespace TEG_api.Services.Imp
 
         public async Task<bool> SoftDeleteAsync<T>(T entity) where T : class
         {
-            PropertyInfo idProperty = typeof(T).GetProperty("Id");
+            Guid GuidId;
+            int IntId;
+            T existingEntity;
+
+            var idProperty = typeof(T).GetProperty("Id");
+            var idValue = idProperty.GetValue(entity).ToString();
 
             if (idProperty == null)
             {
@@ -253,13 +261,23 @@ namespace TEG_api.Services.Imp
                 throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
 
-            var entityId = (Guid)idProperty.GetValue(entity);
-
-            var existingEntity = await _db.Set<T>().FindAsync(entityId);
+            if(Guid.TryParse(idValue, out GuidId))
+            {
+                existingEntity = await _db.Set<T>().FindAsync(GuidId);
+            }
+            else if (int.TryParse(idValue, out IntId))
+            {
+                existingEntity = await _db.Set<T>().FindAsync(IntId);
+            }
+            else
+            {
+                _logger.LogWarning($"The method does support IdType {idValue}");
+                throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_SUPPORTED.ToString());
+            }
 
             if (existingEntity == null)
             {
-                _logger.LogWarning($"No entity found with ID {entityId}");
+                _logger.LogWarning($"No entity found with ID {idProperty}");
                 throw new ArgumentException(ErrorsEnumResponse.GenericErros.GENERIC_NOT_FOUND.ToString());
             }
 
