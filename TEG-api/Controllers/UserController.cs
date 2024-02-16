@@ -50,7 +50,7 @@ namespace TEG_api.Controllers
         }
 
         [HttpDelete("Delete")]
-        public async Task<IActionResult> DeleteUser([FromBody] Guid Id)
+        public async Task<IActionResult> DeleteUser([FromQuery] Guid Id)
         {
             var response = await _mediator.Send(new DeleteUserCommand(Id));
 
@@ -58,7 +58,7 @@ namespace TEG_api.Controllers
         }
 
         [HttpDelete("SoftDelete")]
-        public async Task<IActionResult> SoftDeleteUser([FromBody] Guid Id)
+        public async Task<IActionResult> SoftDeleteUser([FromQuery] Guid Id)
         {
             var response = await _mediator.Send(new SoftDeleteUserCommand(Id));
 

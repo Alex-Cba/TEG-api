@@ -13,7 +13,7 @@ namespace TEG_api.Common.Models
         public int Troops { get; set; } = 1;
         public int ContinentId { get; set; }
         [Column("OwnerID")]
-        public Guid PlayerId { get; set; }
+        public Guid? PlayerId { get; set; }
         public virtual Continent Continent { get; set; }
         public virtual ICollection<Country> BorderingCountries { get; set; }
     }

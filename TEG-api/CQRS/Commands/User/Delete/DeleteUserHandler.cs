@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TEG_api.CQRS.Commands.User.Delete
 {
-    public class DeleteUserHandler : IRequestHandler<DeleteUserCommand, DeleteUserResponse>
+    public class DeleteUserHandler : IRequestHandler<DeleteUserCommand, bool>
     {
         private readonly TEGContext _db;
         private readonly ICRUDService _crudService;
@@ -20,18 +20,13 @@ namespace TEG_api.CQRS.Commands.User.Delete
             _mapper = mapper;
         }
 
-        public async Task<DeleteUserResponse> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
             await _crudService.CheckValidator(request);
 
-            var userToDelete = await _db.Users.FirstOrDefaultAsync(u => u.Id == request.Id);
+            await _crudService.DeleteAsync<Common.Models.User>(request.Id.ToString());
 
-            await _crudService.DeleteAsync<Common.Models.User>(userToDelete.Id.ToString());
-
-            return new DeleteUserResponse()
-            {
-                Name = userToDelete.Name,
-            };
+            return true;
         }
     }
 }

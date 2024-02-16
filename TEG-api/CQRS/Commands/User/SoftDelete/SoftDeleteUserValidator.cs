@@ -11,7 +11,7 @@ namespace TEG_api.CQRS.Commands.User.SoftDelete
 
         public SoftDeleteUserValidator(TEGContext db)
         {
-            RuleFor(x => x.Id).NotEmpty().WithMessage(ErrorsEnumResponse.ErrorDeleteEntities.NOT_FOUND.ToString());
+            RuleFor(x => x.Id).NotEmpty().WithMessage(ErrorsEnumResponse.ErrorDeleteEntities.ID_EMPTY.ToString());
             _db = db;
         }
     }

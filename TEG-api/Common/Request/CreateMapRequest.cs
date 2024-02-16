@@ -1,8 +1,7 @@
-﻿namespace TEG_api.Common.DTOs
+﻿namespace TEG_api.Common.Request
 {
-    public class MapDTO
+    public class CreateMapRequest
     {
-        public int Id { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
     }
