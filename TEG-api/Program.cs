@@ -3,11 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using TEG_api.CQRS.Commands.User.Create;
 using TEG_api.Data;
+using TEG_api.Hubs;
 using TEG_api.Middleware;
 using TEG_api.Services.Imp;
 using TEG_api.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSignalR();
 
 // Add services to the container.
 
@@ -69,5 +72,7 @@ app.UseAuthorization();
 app.UseMiddleware<ErrorMiddleware>();
 
 app.MapControllers();
+
+app.MapHub<TestHub>("/testHub");
 
 app.Run();
