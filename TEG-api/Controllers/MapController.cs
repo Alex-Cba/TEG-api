@@ -7,7 +7,6 @@ using TEG_api.CQRS.Commands.Continent.SoftDelete;
 using TEG_api.CQRS.Commands.Continent.Update;
 using TEG_api.CQRS.Commands.Country.Create;
 using TEG_api.CQRS.Commands.Country.Delete;
-using TEG_api.CQRS.Commands.Country.SoftDelete;
 using TEG_api.CQRS.Commands.Country.Update;
 using TEG_api.CQRS.Commands.Map.Create;
 using TEG_api.CQRS.Commands.Map.Delete;
@@ -159,14 +158,6 @@ namespace TEG_api.Controllers
         public async Task<IActionResult> DeleteCountry([FromQuery] int Id)
         {
             var response = await _mediator.Send(new DeleteCountryCommand(Id));
-
-            return Ok(response);
-        }
-
-        [HttpDelete("Country/SoftDelete")]
-        public async Task<IActionResult> SoftDeleteCountry([FromQuery] int Id)
-        {
-            var response = await _mediator.Send(new SoftDeleteCountryCommand(Id));
 
             return Ok(response);
         }

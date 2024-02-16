@@ -19,7 +19,7 @@ namespace TEG_api.CQRS.Querys.Continents.ById
         public async Task<ContinentDTO> Handle(GetByIdContinentsQuery request, CancellationToken cancellationToken)
         {
 
-            var continentDB = await _crudService.GetByIdAsync<Common.Models.Map>(request.Id);
+            var continentDB = await _crudService.GetByIdAsync<Common.Models.Continent>(request.Id);
 
             var response = _mapper.Map<ContinentDTO>(continentDB);
 
