@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using System.Collections.Concurrent;
 using System.Net.WebSockets;
+using TEG_api.Common.Enums;
+using TEG_api.Common.Request;
 
 namespace TEG_api.Hubs
 {
@@ -44,17 +46,5 @@ namespace TEG_api.Hubs
             await Clients.All.SendAsync("SendMessageAllPlayeres", message);
         }
         #endregion
-    }
-
-    public class DataDices
-    {
-        public string TypePlayer { get; set; }
-        public int NumberDices { get; set; }
-        public string Color { get; set; }
-    }
-
-    public enum TypePlayer
-    {
-        Attacker, Defender
     }
 }

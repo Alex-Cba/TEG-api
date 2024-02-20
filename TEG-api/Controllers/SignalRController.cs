@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using System;
-using System.Collections.Generic;
+using TEG_api.Common.Enums;
+using TEG_api.Common.Request;
 using TEG_api.Hubs;
 using TEG_api.Middleware.Exceptions;
 using TEG_api.Services.Interface;
