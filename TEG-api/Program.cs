@@ -14,15 +14,7 @@ builder.Services.AddSignalR();
 
 // Add services to the container.
 
-builder.Services.AddCors(config =>
-{
-    config.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyHeader()
-               .AllowAnyMethod();
-    });
-});
+builder.Services.AddCors();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -63,9 +55,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseCors(c =>
+{
+    c.AllowAnyHeader();
+    c.AllowAnyMethod();
+    c.WithOrigins("http://localhost:3000", "http://localhost:3001");
+    c.AllowCredentials();
+});
 
-app.UseCors();
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
@@ -73,6 +71,6 @@ app.UseMiddleware<ErrorMiddleware>();
 
 app.MapControllers();
 
-app.MapHub<TestHub>("/testHub");
+app.MapHub<PrincipalHub>("/PrincipalHub");
 
 app.Run();
