@@ -3,23 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using TEG_api.CQRS.Commands.User.Create;
 using TEG_api.Data;
+using TEG_api.Hubs;
 using TEG_api.Middleware;
 using TEG_api.Services.Imp;
 using TEG_api.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSignalR();
+
 // Add services to the container.
 
-builder.Services.AddCors(config =>
-{
-    config.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyHeader()
-               .AllowAnyMethod();
-    });
-});
+builder.Services.AddCors();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -60,14 +55,22 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseCors(c =>
+{
+    c.AllowAnyHeader();
+    c.AllowAnyMethod();
+    c.WithOrigins("http://localhost:3000", "http://localhost:3001", "https://localhost:7123");
+    c.AllowCredentials();
+});
 
-app.UseCors();
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.UseMiddleware<ErrorMiddleware>();
 
 app.MapControllers();
+
+app.MapHub<PrincipalHub>("/PrincipalHub");
 
 app.Run();
