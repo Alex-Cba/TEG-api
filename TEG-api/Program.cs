@@ -59,7 +59,7 @@ app.UseCors(c =>
 {
     c.AllowAnyHeader();
     c.AllowAnyMethod();
-    c.WithOrigins("http://localhost:3000", "http://localhost:3001");
+    c.WithOrigins("http://localhost:3000", "http://localhost:3001", "https://localhost:7123");
     c.AllowCredentials();
 });
 
