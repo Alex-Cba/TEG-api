@@ -1,6 +1,4 @@
-﻿using TEG_api.Common.Enums;
-
-namespace TEG_api.Common.DTOs
+﻿namespace TEG_api.Common.DTOs
 {
     public class MissionDTO
     {

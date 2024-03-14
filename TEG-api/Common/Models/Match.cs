@@ -16,6 +16,8 @@ namespace TEG_api.Common.Models
         public string Winner { get; set; }
         public int? MapId { get; set; }
         public int MatchConfigId { get; set; }
+        public ColorPlayer? TurnActual { get; set; }
+        public List<ColorPlayer?> TurnOrder { get; set; }
         public virtual Map? Map { get; set; }
         public virtual MatchConfig MatchConfig { get; set; }
         public virtual ICollection<PlayerGameSetup> PlayerGameSetups { get; set; }

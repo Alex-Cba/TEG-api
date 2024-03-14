@@ -9,7 +9,7 @@ namespace TEG_api.Hubs
     public class PrincipalHub : Hub
     {
         public static List<string> _sockets = new List<string>();
-        public static ConcurrentDictionary<string, (TypePlayer, DataDices)> _socketsToFight = new ConcurrentDictionary<string, (TypePlayer, DataDices)>();
+        public static ConcurrentDictionary<string, (TypePlayer, DataDicesTest)> _socketsToFight = new ConcurrentDictionary<string, (TypePlayer, DataDicesTest)>();
 
         #region Connection
         public override Task OnConnectedAsync()
@@ -26,7 +26,7 @@ namespace TEG_api.Hubs
         {
             var connectionId = Context.ConnectionId;
 
-            (TypePlayer, DataDices) Dummy;
+            (TypePlayer, DataDicesTest) Dummy;
 
             _sockets.Remove(connectionId);
             _socketsToFight.TryRemove(connectionId, out Dummy);

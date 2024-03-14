@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TEG_api.Common.Enums;
 
 namespace TEG_api.Common.Models
 {
@@ -9,6 +10,7 @@ namespace TEG_api.Common.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public List<TypeOfCard> CardsInHand { get; set; }
         public Guid PlayerId { get; set; }
         public Guid MatchId { get; set; }
         public int MissionId { get; set; }

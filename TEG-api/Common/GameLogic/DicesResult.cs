@@ -15,7 +15,7 @@
         public string Attacker { get; set; }
         public int UnitLostA { get; set; }
         public string Defender { get; set; }
-        public int UnitLostB { get; set; }
+        public int UnitLostD { get; set; }
         public string Winner  { get; set; }
     }
 

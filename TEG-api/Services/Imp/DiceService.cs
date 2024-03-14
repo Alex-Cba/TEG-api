@@ -78,7 +78,7 @@ namespace TEG_api.Services.Imp
         {
             if (dicesResult.DiceAttacker[i].IsWinner)
             {
-                dicesResult.UnitLostB++;
+                dicesResult.UnitLostD++;
             }
             else if (dicesResult.DiceDefender[i].IsWinner)
             {

@@ -122,6 +122,33 @@ namespace TEG_api.Data
                         v => (MatchStatus)Enum.Parse(typeof(MatchStatus), v)
                 );
 
+            modelBuilder
+               .Entity<Match>()
+               .Property(e => e.TurnActual)
+               .HasConversion(
+                       v => v.ToString(),
+                       v => (ColorPlayer)Enum.Parse(typeof(ColorPlayer), v)
+               );
+
+            modelBuilder.Entity<Match>()
+                .Property(e => e.TurnOrder)
+                .HasConversion(
+                    v => string.Join(",", v.Select(x => x.ToString())),
+                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                           .Select(x => (ColorPlayer?)Enum.Parse(typeof(ColorPlayer), x))
+                           .ToList()
+                );
+
+            modelBuilder.Entity<PlayerGameSetup>()
+                .Property(e => e.CardsInHand)
+                .HasConversion(
+                    v => string.Join(",", v.Select(x => x.ToString())),
+                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                           .Select(x => (TypeOfCard)Enum.Parse(typeof(TypeOfCard), x))
+                           .ToList()
+                );
+
+
             OnModelCreatingPartial(modelBuilder);
         }
 

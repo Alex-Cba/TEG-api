@@ -4,4 +4,9 @@
     {
         Attacker, Defender
     }
+
+    public enum ColorPlayer
+    {
+        BLUE, RED, GREEN, YELLOW, PINK, BLACK
+    }
 }

@@ -52,7 +52,7 @@ namespace TEG_api.Controllers
         #endregion
 
         [HttpPost("ReceiveDicesData")]
-        public async Task<IActionResult> ReceiveDicesData([FromBody] DataDices data, [FromHeader] string connectionId)
+        public async Task<IActionResult> ReceiveDicesData([FromBody] DataDicesTest data, [FromHeader] string connectionId)
         {
             TypePlayer value = (TypePlayer)Enum.Parse(typeof(TypePlayer), data.TypePlayer);
             PrincipalHub._socketsToFight.TryAdd(connectionId, (value, data));
@@ -65,10 +65,15 @@ namespace TEG_api.Controllers
             return Ok(true);
         }
 
+        private void UpdateDatabase()
+        {
+            Console.WriteLine("PRUEBA");
+        }
+
         private async Task<bool> ResolveFight()
         {
-            DataDices Attacker = null;
-            DataDices Defender = null;
+            DataDicesTest Attacker = null;
+            DataDicesTest Defender = null;
 
             if(PrincipalHub._socketsToFight.Count > 2)
             {
@@ -102,6 +107,9 @@ namespace TEG_api.Controllers
 
             await _hubContext.Clients.All.SendAsync("SendMessageAllPlayeres", result);
             PrincipalHub._socketsToFight.Clear();
+
+            Thread thread = new Thread(new ThreadStart(UpdateDatabase));
+            thread.Start();
 
             return true;
         }
