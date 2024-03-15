@@ -1,6 +1,7 @@
-﻿namespace TEG_api.CQRS.Commands.Security.Jwt
+﻿using MediatR;
+using TEG_api.Controllers;
+
+namespace TEG_api.CQRS.Commands.Security.Jwt
 {
-    public class JwtSecurityCommand
-    {
-    }
+    public record JwtSecurityCommand(LoginObsolete login) : IRequest<string>;
 }
