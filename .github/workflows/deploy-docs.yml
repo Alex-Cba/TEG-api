@@ -18,12 +18,17 @@ jobs:
         
     - name: Install DocFX
       run: dotnet tool install --global docfx
-      
+    
+    - name: Verify docfx.json
+      run: |
+        echo "Checking for docfx.json"
+        ls -R # Lista todos los archivos para ver dónde está docfx.json
+
     - name: Generate Documentation
       run: |
+        cd TEG-api # Asegúrate de estar en la carpeta que contiene docfx.json
         docfx metadata
         docfx build
-
     - name: List generated files
       run: |
         echo "Listing _site directory:"
