@@ -21,19 +21,17 @@ jobs:
     - name: Install DocFX
       run: dotnet tool install --global docfx
 
-    - name: DocFX Build
-        run: docfx.json
-        continue-on-error: false
-
     - name: Generate Documentation
       run: |
+        echo "Generating metadata..."
         docfx metadata
+        echo "Building documentation..."
         docfx build
-        
-    - name: Publish
-        if: github.event_name == 'push'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site
-          force_orphan: true
+      working-directory: ./TEG-api
+
+    - name: Publish to GitHub Pages
+      if: github.event_name == 'push'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./TEG-api/_site
