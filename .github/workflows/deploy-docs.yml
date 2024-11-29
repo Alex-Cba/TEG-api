@@ -1,33 +1,32 @@
-name: Deploy DocFX Documentation
+name: Update GitHub Pages Documentation
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
+
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    
     steps:
-    - name: Check out the repository
-      uses: actions/checkout@v3
-
-    - name: Set up .NET
-      uses: actions/setup-dotnet@v3
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 7.x
-
+        dotnet-version: 8.x
+        
     - name: Install DocFX
+      run: dotnet tool install --global docfx
+      
+    - name: Generate Documentation
       run: |
-        wget https://github.com/dotnet/docfx/releases/latest/download/docfx.zip
-        unzip docfx.zip -d docfx
-        sudo mv docfx/docfx /usr/local/bin/
-
-    - name: Build documentation
-      run: docfx build
-
+        docfx metadata
+        docfx build
+        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
+        publish_dir: _site
