@@ -46,6 +46,12 @@ namespace TEG_api.Controllers
             return Ok(await _mediator.Send(new GetAllMapsQuery()));
         }
 
+        /// <summary>
+        /// Esto es una dasdadasda de documentación
+        /// </summary>
+        /// <param name="a">El primer númedsadasdro.</param>
+        /// <param name="b">El segundo adas.</param>
+        /// <returns>La suma de los dos números.</returns>
         [HttpGet("Map/GetById/{Id}")]
         public async Task<IActionResult> GetMapById([FromRoute] string Id)
         {
