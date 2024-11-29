@@ -26,14 +26,14 @@ namespace TEG_api.Helpers.JwtSecurity
         {
             var privateKey = Convert.FromBase64String(_secretKey);
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = RSA.Create();
-            key.ImportRSAPrivateKey(privateKey, out _);
+            var rsa = RSA.Create();
+            rsa.ImportRSAPrivateKey(privateKey, out _);
             var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.NameIdentifier, userId),
-                    new Claim(ClaimTypes.Name, userName),
-                    new Claim(ClaimTypes.Role, role)
-                };
+            {
+                new Claim(ClaimTypes.NameIdentifier, userId),
+                new Claim(ClaimTypes.Name, userName),
+                new Claim(ClaimTypes.Role, role)
+            };
             var identity = new ClaimsIdentity(claims);
 
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -42,7 +42,7 @@ namespace TEG_api.Helpers.JwtSecurity
                 Issuer = _issuer,
                 Audience = _audience,
                 Expires = DateTime.UtcNow.AddMinutes(_expiryInMinutes),
-                SigningCredentials = new SigningCredentials(new RsaSecurityKey(key), SecurityAlgorithms.EcdsaSha256)
+                SigningCredentials = new SigningCredentials(new RsaSecurityKey(rsa), SecurityAlgorithms.RsaSha256)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

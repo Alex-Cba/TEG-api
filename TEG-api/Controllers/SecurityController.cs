@@ -1,11 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.Data;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using TEG_api.Common.Models;
+using System.Security.Cryptography;
+using TEG_api.CQRS.Commands.Security.Jwt;
 using TEG_api.Helpers.JwtSecurity;
 
 namespace TEG_api.Controllers
@@ -15,8 +11,6 @@ namespace TEG_api.Controllers
     public class SecurityController : Controller
     {
         private readonly IMediator _mediator;
-        private readonly string LoginName = "admin";
-        private readonly string LoginPassword = "admin";
         private readonly JwtHelper _jwtHelper;
 
         public SecurityController(IMediator mediator, JwtHelper jwtHelper)
@@ -29,11 +23,19 @@ namespace TEG_api.Controllers
         [HttpPost("LoginObsolete")]
         public async Task<IActionResult> LoginObsolete([FromBody] LoginObsolete request)
         {
-            if (LoginName.Equals(request.LoginName) && LoginPassword.Equals(request.LoginPassword))
+            byte[] keyBytes = new byte[256];
+            using (var rng = new RNGCryptoServiceProvider())
             {
-                var result = _jwtHelper.GenerateToken("1", request.LoginName, request.LoginPassword);
-            
-                return Ok(result);
+                rng.GetBytes(keyBytes);
+            }
+            // Convierte los bytes en una cadena base64 para su fácil manejo
+            var alex = Convert.ToBase64String(keyBytes);
+
+            var result = _mediator.Send(new JwtSecurityCommand(request));
+
+            if (!string.IsNullOrEmpty(result.Result))
+            {
+                return Ok(result.Result);
             }
             else
             {

@@ -34,6 +34,12 @@ namespace TEG_api.Controllers
 
         #region Map
 
+        /// <summary>
+        /// Esto es una prubea de documentación
+        /// </summary>
+        /// <param name="a">El primer número.</param>
+        /// <param name="b">El segundo número.</param>
+        /// <returns>La suma de los dos números.</returns>
         [HttpGet("Map/GetAll")]
         public async Task<IActionResult> GetAllMaps()
         {
