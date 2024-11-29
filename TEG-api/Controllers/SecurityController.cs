@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography;
 using TEG_api.CQRS.Commands.Security.Jwt;
 using TEG_api.Helpers.JwtSecurity;
 
@@ -22,6 +23,14 @@ namespace TEG_api.Controllers
         [HttpPost("LoginObsolete")]
         public async Task<IActionResult> LoginObsolete([FromBody] LoginObsolete request)
         {
+            byte[] keyBytes = new byte[256];
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(keyBytes);
+            }
+            // Convierte los bytes en una cadena base64 para su fácil manejo
+            var alex = Convert.ToBase64String(keyBytes);
+
             var result = _mediator.Send(new JwtSecurityCommand(request));
 
             if (!string.IsNullOrEmpty(result.Result))
