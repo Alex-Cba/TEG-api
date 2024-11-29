@@ -5,7 +5,6 @@ on:
     branches: [main]
 
 jobs:
-
   build-and-deploy:
     runs-on: windows-latest
     
@@ -24,14 +23,14 @@ jobs:
       run: |
         docfx metadata
         docfx build
+
+    - name: List generated files
+      run: |
+        echo "Listing _site directory:"
+        ls -R _site
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: _site
-
-    - name: List generated files
-      run: |
-        echo "Listing _site directory:"
-        ls -R _site
