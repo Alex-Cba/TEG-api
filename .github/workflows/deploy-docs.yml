@@ -2,7 +2,9 @@ name: Update GitHub Pages Documentation
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build-and-deploy:
@@ -18,25 +20,21 @@ jobs:
         
     - name: Install DocFX
       run: dotnet tool install --global docfx
-    
-    - name: Verify docfx.json
-      run: |
-        echo "Checking for docfx.json"
-        ls -R # Lista todos los archivos para ver dónde está docfx.json
+
+    - name: DocFX Build
+        working-directory: docs
+        run: docfx docfx.json
+        continue-on-error: false
 
     - name: Generate Documentation
       run: |
-        cd TEG-api # Asegúrate de estar en la carpeta que contiene docfx.json
         docfx metadata
         docfx build
-    - name: List generated files
-      run: |
-        echo "Listing _site directory:"
-        ls -R _site
         
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: _site
-        publish_branch: gh-pages
+    - name: Publish
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_site
+          force_orphan: true
