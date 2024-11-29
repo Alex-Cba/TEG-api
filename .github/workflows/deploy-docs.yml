@@ -22,7 +22,6 @@ jobs:
       run: dotnet tool install --global docfx
 
     - name: DocFX Build
-        working-directory: docs
         run: docfx docfx.json
         continue-on-error: false
 
@@ -36,5 +35,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_site
+          publish_dir: _site
           force_orphan: true
