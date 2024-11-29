@@ -22,7 +22,7 @@ jobs:
       run: dotnet tool install --global docfx
 
     - name: DocFX Build
-        run: docfx docfx.json
+        run: docfx.json
         continue-on-error: false
 
     - name: Generate Documentation
