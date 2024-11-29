@@ -1,0 +1,2340 @@
+{
+  "source_base_path": "D:/a/TEG-api/TEG-api/TEG-api",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Create.CreateContinentCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Create.CreateContinentCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Create.CreateContinentHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Create.CreateContinentHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Create.CreateContinentValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Create.CreateContinentValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Create.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Create.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Delete.DeleteContinentCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Delete.DeleteContinentCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Delete.DeleteContinentHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Delete.DeleteContinentHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Delete.DeleteContinentValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Delete.DeleteContinentValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Delete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Delete.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.SoftDelete.SoftDeleteContinentCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.SoftDelete.SoftDeleteContinentCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.SoftDelete.SoftDeleteContinentHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.SoftDelete.SoftDeleteContinentHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.SoftDelete.SoftDeleteMapValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.SoftDelete.SoftDeleteMapValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.SoftDelete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.SoftDelete.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Update.UpdateContinentCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Update.UpdateContinentCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Update.UpdateContinentHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Update.UpdateContinentHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Update.UpdateContinentValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Update.UpdateContinentValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Continent.Update.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Continent.Update.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Create.CreateCountryCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Create.CreateCountryCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Create.CreateCountryHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Create.CreateCountryHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Create.CreateCountryValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Create.CreateCountryValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Create.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Create.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Delete.DeleteCountryCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Delete.DeleteCountryCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Delete.DeleteCountryHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Delete.DeleteCountryHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Delete.DeleteCountryValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Delete.DeleteCountryValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Delete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Delete.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Update.UpdateCountryCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Update.UpdateCountryCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Update.UpdateCountryHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Update.UpdateCountryHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Update.UpdateCountryValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Update.UpdateCountryValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Country.Update.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Country.Update.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.GameMaster.Attack.AttackCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.GameMaster.Attack.AttackCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.GameMaster.Attack.AttackHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.GameMaster.Attack.AttackHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.GameMaster.Attack.AttackValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.GameMaster.Attack.AttackValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.GameMaster.Attack.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.GameMaster.Attack.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Create.CreateMapCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Create.CreateMapCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Create.CreateMapHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Create.CreateMapHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Create.CreateMapValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Create.CreateMapValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Create.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Create.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Delete.DeleteMapCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Delete.DeleteMapCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Delete.DeleteMapHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Delete.DeleteMapHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Delete.DeleteMapValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Delete.DeleteMapValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Delete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Delete.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.SoftDelete.SoftDeleteMapCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.SoftDelete.SoftDeleteMapCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.SoftDelete.SoftDeleteMapHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.SoftDelete.SoftDeleteMapHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.SoftDelete.SoftDeleteMapValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.SoftDelete.SoftDeleteMapValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.SoftDelete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.SoftDelete.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Update.UpdateMapCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Update.UpdateMapCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Update.UpdateMapHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Update.UpdateMapHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Update.UpdateMapValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Update.UpdateMapValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Map.Update.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Map.Update.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Security.Jwt.JwtSecurityCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Security.Jwt.JwtSecurityCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Security.Jwt.JwtSecurityHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Security.Jwt.JwtSecurityHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Security.Jwt.JwtSecurityValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Security.Jwt.JwtSecurityValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.Security.Jwt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.Security.Jwt.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Create.CreateUserCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Create.CreateUserCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Create.CreateUserHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Create.CreateUserHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Create.CreateUserValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Create.CreateUserValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Create.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Create.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Delete.DeleteUserCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Delete.DeleteUserCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Delete.DeleteUserHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Delete.DeleteUserHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Delete.DeleteUserValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Delete.DeleteUserValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Delete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Delete.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.SoftDelete.SoftDeleteUserCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.SoftDelete.SoftDeleteUserCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.SoftDelete.SoftDeleteUserHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.SoftDelete.SoftDeleteUserHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.SoftDelete.SoftDeleteUserValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.SoftDelete.SoftDeleteUserValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.SoftDelete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.SoftDelete.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Update.UpdateUserCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Update.UpdateUserCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Update.UpdateUserHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Update.UpdateUserHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Update.UpdateUserValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Update.UpdateUserValidator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Commands.User.Update.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Commands.User.Update.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Configuration.All.GetAllConfigurationsHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Configuration.All.GetAllConfigurationsHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Configuration.All.GetAllConfigurationsQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Configuration.All.GetAllConfigurationsQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Configuration.All.ListConfigurations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Configuration.All.ListConfigurations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Configuration.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Configuration.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Continents.All.GetAllContinentsHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Continents.All.GetAllContinentsHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Continents.All.GetAllContinentsQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Continents.All.GetAllContinentsQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Continents.All.ListContinents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Continents.All.ListContinents.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Continents.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Continents.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Continents.ById.GetByIdContinentsHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Continents.ById.GetByIdContinentsHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Continents.ById.GetByIdContinentsQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Continents.ById.GetByIdContinentsQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Continents.ById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Continents.ById.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Countrys.All.GetAllCountrysHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Countrys.All.GetAllCountrysHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Countrys.All.GetAllCountrysQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Countrys.All.GetAllCountrysQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Countrys.All.ListCountrys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Countrys.All.ListCountrys.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Countrys.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Countrys.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Countrys.ById.GetByIdCountrysHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Countrys.ById.GetByIdCountrysHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Countrys.ById.GetByIdCountrysQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Countrys.ById.GetByIdCountrysQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Countrys.ById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Countrys.ById.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Dice.All.GetAllDicesHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Dice.All.GetAllDicesHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Dice.All.GetAllDicesQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Dice.All.GetAllDicesQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Dice.All.ListDices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Dice.All.ListDices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Dice.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Dice.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Maps.All.GetAllMapsHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Maps.All.GetAllMapsHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Maps.All.GetAllMapsQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Maps.All.GetAllMapsQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Maps.All.ListMaps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Maps.All.ListMaps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Maps.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Maps.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Maps.ById.GetByIdMapsHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Maps.ById.GetByIdMapsHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Maps.ById.GetByIdMapsQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Maps.ById.GetByIdMapsQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Maps.ById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Maps.ById.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Match.All.GetAllMatchesHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Match.All.GetAllMatchesHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Match.All.GetAllMatchesQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Match.All.GetAllMatchesQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Match.All.ListMatches.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Match.All.ListMatches.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Match.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Match.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Mission.All.GetAllMissionsHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Mission.All.GetAllMissionsHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Mission.All.GetAllMissionsQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Mission.All.GetAllMissionsQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Mission.All.ListMissions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Mission.All.ListMissions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Mission.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Mission.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Players.All.GetAllPlayersHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Players.All.GetAllPlayersHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Players.All.GetAllPlayersQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Players.All.GetAllPlayersQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Players.All.ListPlayers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Players.All.ListPlayers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.Players.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.Players.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.User.All.GetAllUsersHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.User.All.GetAllUsersHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.User.All.GetAllUsersQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.User.All.GetAllUsersQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.User.All.ListUsers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.User.All.ListUsers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.User.All.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.User.All.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.User.ById.GetByIdUsersHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.User.ById.GetByIdUsersHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.User.ById.GetByIdUsersQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.User.ById.GetByIdUsersQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.CQRS.Querys.User.ById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.CQRS.Querys.User.ById.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.ConfigurationDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.ConfigurationDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.ContinentDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.ContinentDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.CountryDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.CountryDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.DiceDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.DiceDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.MapDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.MapDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.MatchDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.MatchDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.MissionDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.MissionDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.PlayerDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.PlayerDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.UserDTO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.UserDTO.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.DTOs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.DTOs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ColorPlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ColorPlayer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.DifficultyType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.DifficultyType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorCreateContinent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorCreateContinent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorCreateCountry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorCreateCountry.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorCreateMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorCreateMap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorCreateUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorCreateUser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorDeleteEntities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorDeleteEntities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorUpdateContinent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorUpdateContinent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorUpdateCountry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorUpdateCountry.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorUpdateMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorUpdateMap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorUpdateUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.ErrorUpdateUser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.GenericErros.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.GenericErros.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.UnHandleExceptionErrors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.UnHandleExceptionErrors.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.ErrorsEnumResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.ErrorsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.MatchStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.MatchStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.TypeOfCard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.TypeOfCard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.TypePlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.TypePlayer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.UserType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.UserType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Enums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Enums.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.GameLogic.DiceThrowed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.GameLogic.DiceThrowed.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.GameLogic.DicesResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.GameLogic.DicesResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.GameLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.GameLogic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Configuration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Continent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Continent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Country.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Country.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.DbHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.DbHistory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Dice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Dice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Map.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Map.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Match.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Match.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.MatchConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.MatchConfig.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Mission.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Mission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Player.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Player.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.PlayerGameSetup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.PlayerGameSetup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.Team.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.Team.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.User.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Models.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.AttackRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.AttackRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.Attacker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.Attacker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.CreateContinentRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.CreateContinentRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.CreateCountryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.CreateCountryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.CreateMapRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.CreateMapRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.CreateUserRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.CreateUserRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.DataDices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.DataDices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.DataDicesTest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.DataDicesTest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.Defender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.Defender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.UpdateContinentRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.UpdateContinentRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.UpdateCountryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.UpdateCountryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.UpdateMapRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.UpdateMapRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.UpdateUserRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.UpdateUserRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Request.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Request.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.AttackResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.AttackResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.ContinentDealingResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.ContinentDealingResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.DealingCountriesResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.DealingCountriesResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.MapDealingResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.MapDealingResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.UpdateContinentResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.UpdateContinentResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.UpdateCountryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.UpdateCountryResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.UpdateMapResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.UpdateMapResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.UpdateUserResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.UpdateUserResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Common.Response.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Common.Response.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.CheckDbController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.CheckDbController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.ConfigurationController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.ConfigurationController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.DiceController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.DiceController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.GameMasterController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.GameMasterController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.HealthyControllers.CheckController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.HealthyControllers.CheckController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.HealthyControllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.HealthyControllers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.LoginObsolete.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.LoginObsolete.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.MapController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.MapController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.MatchController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.MatchController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.MissionController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.MissionController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.PlayerController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.PlayerController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.PlayerGameSetupController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.PlayerGameSetupController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.SecurityController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.SecurityController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.SignalRController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.SignalRController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.UserController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.UserController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Controllers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Data.TEGContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Data.TEGContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Data.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Helpers.JwtSecurity.JwtHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Helpers.JwtSecurity.JwtHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Helpers.JwtSecurity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Helpers.JwtSecurity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Hubs.PrincipalHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Hubs.PrincipalHub.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Hubs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Hubs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Mapper.AutoMapperConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Mapper.AutoMapperConfig.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Mapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Mapper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Middleware.ErrorMiddleware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Middleware.ErrorMiddleware.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Middleware.Exceptions.ExceptionBadRequestClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Middleware.Exceptions.ExceptionBadRequestClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Middleware.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Middleware.Exceptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Middleware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Middleware.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Imp.CRUDImp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Imp.CRUDImp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Imp.Dealer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Imp.Dealer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Imp.DiceService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Imp.DiceService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Imp.GameSynchronizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Imp.GameSynchronizer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Imp.TurnControllerService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Imp.TurnControllerService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Imp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Imp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Interface.ICRUDService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Interface.ICRUDService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Interface.IDealer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Interface.IDealer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Interface.IDiceService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Interface.IDiceService.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Interface.IGameSynchronizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Interface.IGameSynchronizer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Interface.ITurnController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Interface.ITurnController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TEG_api.Services.Interface.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TEG_api.Services.Interface.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
