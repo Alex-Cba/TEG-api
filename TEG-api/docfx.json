@@ -4,9 +4,9 @@
       "src": [
         {
           "files": [
-            "**.csproj"
+            "**/*.csproj"
           ],
-          "src": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Alex\\Repositorios\\TEG-api\\TEG-api"
+          "src": "./"
         }
       ],
       "dest": "api",
