@@ -51,7 +51,10 @@ namespace TEG_api.Controllers
         /// </summary>
         /// <param name="a">El primer númedsadasdro.</param>
         /// <param name="b">El segundo adas.</param>
-        /// <returns>La suma de los dos números.</returns>
+        /// <response code="200">Returns the ID of the successfully created show.</response>
+        /// <response code="400">If the provided data is invalid.</response>
+        /// <response code="401">If the user is not authenticated.</response>
+        /// <response code="403">If the user lacks the required permissions.</response>
         [HttpGet("Map/GetById/{Id}")]
         public async Task<IActionResult> GetMapById([FromRoute] string Id)
         {
