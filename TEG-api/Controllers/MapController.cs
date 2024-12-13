@@ -47,7 +47,7 @@ namespace TEG_api.Controllers
         }
 
         /// <summary>
-        /// Esto es una dasdadasda de documentación
+        /// Esdaaaaaaaaaaaaaaaaaaaaaaa
         /// </summary>
         /// <param name="a">El primer númedsadasdro.</param>
         /// <param name="b">El segundo adas.</param>
