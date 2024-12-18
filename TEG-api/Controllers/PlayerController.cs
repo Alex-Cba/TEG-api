@@ -16,6 +16,8 @@ namespace TEG_api.Controllers
         }
 
         [HttpGet("GetAll")]
+
+        //Summary
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _mediator.Send(new GetAllPlayersQuery()));
