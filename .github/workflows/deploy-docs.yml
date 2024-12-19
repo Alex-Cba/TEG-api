@@ -12,7 +12,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    
+      with:
+        fetch-depth: 0  # Necesario para trabajar con múltiples ramas
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
@@ -28,6 +30,15 @@ jobs:
         echo "Building documentation..."
         docfx build
       working-directory: ./TEG-api
+
+    - name: Checkout GitHub Pages Branch
+      run: git fetch origin gh-pages && git checkout gh-pages
+      working-directory: ./gh-pages-temp
+
+    - name: Copy Custom Home Page
+      run: |
+        echo "Copying custom index.html from gh-pages branch..."
+        cp ./gh-pages-temp/index.html ./TEG-api/_site/index.html
 
     - name: Publish to GitHub Pages
       if: github.event_name == 'push'
