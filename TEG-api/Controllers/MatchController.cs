@@ -15,6 +15,10 @@ namespace TEG_api.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// DSOPAKDOASDKASKDPASKPODKASOPODPKASDOASDKOASKDOSFDZNHUUG YUGADIJQMWODO
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
